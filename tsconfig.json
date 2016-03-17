@@ -10,15 +10,17 @@
   },
   "filesGlob": [
     "typings/main.d.ts",
+    "!./node_modules/**/*.ts",
     "src/**/*.ts"
   ],
   "files": [
     "typings/main.d.ts",
+    "src/Api.ts",
     "src/greeter.ts",
     "src/sbg.ts",
+    "src/clients/Auth.ts",
     "src/clients/Base.ts",
-      "src/clients/Auth.ts",
-      "src/clients/Task.ts",
+    "src/clients/Task.ts",
     "src/interfaces/SBGConfigInterfaces.ts"
   ]
 }

@@ -1,8 +1,10 @@
 import {Base} from './Base';
 
-class Auth extends Base {
+export class Auth extends Base {
     constructor() {
         super();
     }
 }
+
+
 

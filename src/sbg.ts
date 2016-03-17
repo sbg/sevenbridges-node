@@ -1,11 +1,24 @@
 import {Interfaces} from './interfaces/SBGConfigInterfaces';
+import {Api} from './Api';
 
 class SBG {
 
-    config: Interfaces.SBGConfigInterface;
+    Config: Interfaces.SBGConfigInterface;
+    Api: Interfaces.ApiInterface;
 
-    constructor(config: Interfaces.SBGConfigInterface ) {
-        this.config = config;
+    constructor(config: any) {
+        this.Config = config;
+        this.Api = Api;
+    }
+
+    send(options: Interfaces.RequestOptionsInterface, callback: Interfaces.HTTPResponseObject) {
+        let sessionid = this.Config['session-id'];
+
+        options.headers = {
+            'session-id': sessionid
+        };
+
+        this.Api.request(options, callback);
     }
 
 }
