@@ -1,0 +1,8 @@
+{
+  "name": "sbg-node",
+  "version": false,
+  "dependencies": {},
+  "ambientDependencies": {
+    "node": "registry:dt/node#4.0.0+20160316171810"
+  }
+}
