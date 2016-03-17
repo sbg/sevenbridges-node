@@ -9,18 +9,18 @@
     "removeComments": true
   },
   "filesGlob": [
-    "typings/main.d.ts",
+    "typings/tsd.d.ts",
     "!./node_modules/**/*.ts",
     "src/**/*.ts"
   ],
   "files": [
-    "typings/main.d.ts",
+    "typings/tsd.d.ts",
     "src/Api.ts",
     "src/greeter.ts",
     "src/sbg.ts",
+    "src/interfaces/SBGConfigInterfaces.ts",
     "src/clients/Auth.ts",
     "src/clients/Base.ts",
-    "src/clients/Task.ts",
-    "src/interfaces/SBGConfigInterfaces.ts"
+    "src/clients/Task.ts"
   ]
 }
