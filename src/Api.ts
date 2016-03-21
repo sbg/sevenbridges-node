@@ -9,6 +9,6 @@ export module Api {
         return Request(options, callback);
     }
 
-}
 
+}
 
