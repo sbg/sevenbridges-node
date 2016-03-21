@@ -12,6 +12,9 @@ var conf = new CONFIG();
 
 
 describe("sbg", function () {
+
+    this.timeout(5000);
+
     it("should send request", function (done) {
 
         var Client = new SBG({
