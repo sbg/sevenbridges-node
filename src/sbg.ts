@@ -12,10 +12,10 @@ class SBG {
     }
 
     send(options: Interfaces.RequestOptionsInterface, callback: Interfaces.HTTPResponseObject) {
-        let sessionid = this.Config['session-id'];
+        let sessionid = this.Config['X-SBG-Auth-Token'];
 
         options.headers = {
-            'session-id': sessionid
+            'X-SBG-Auth-Token': sessionid
         };
 
         this.Api.request(options, callback);
