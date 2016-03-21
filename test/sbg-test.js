@@ -3,22 +3,28 @@
  */
 var chai = require('chai');
 var expect = chai.expect
+var util = require('util');
 
 var SBG = require("../lib/sbg");
+var CONFIG = require('../lib/config');
+
+var conf = new CONFIG();
+
+console.log(util.inspect(conf, false, null));
 
 
 describe("sbg", function () {
     it("should send request", function () {
 
         var greeter = new SBG({
-            'session-id': ''
+            'X-SBG-Auth-Token': conf.getToken()
         });
 
         expect(greeter.send).not.to.be.undefined;
 
         greeter.send({
             method: 'GET',
-            url: 'https://peon.sbgenomics.com/v0/tasks/?order=desc&order-by=timeStarted&offset=0&limit=10&status=ACTIVE&status=COMPLETED&status=FAILED&status=ABORTED&status=QUEUED'
+            url: 'https://api.sbgenomics.com/v2/tasks'
         }, function (err, res) {
             console.log(err, res.body);
         });

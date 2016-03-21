@@ -14,7 +14,7 @@ export namespace Interfaces {
 
 
     export interface SBGRequestHeadersInterface {
-        'session-id': string;
+        'X-SBG-Auth-Token': string;
     }
 
     export interface ApiInterface {
@@ -26,7 +26,7 @@ export namespace Interfaces {
     }
 
     export interface SBGConfigInterface {
-        'session-id': string;
+        'X-SBG-Auth-Token': string;
     }
 
     export interface InstanceConfigInterface extends SBGConfigInterface {

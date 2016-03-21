@@ -16,6 +16,7 @@
   "files": [
     "typings/tsd.d.ts",
     "src/Api.ts",
+    "src/config.ts",
     "src/sbg.ts",
     "src/clients/Auth.ts",
     "src/clients/Base.ts",

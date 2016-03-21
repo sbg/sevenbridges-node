@@ -10,7 +10,7 @@ declare module 'sbg-node' {
 	        headers?: SBGRequestHeadersInterface;
 	    }
 	    interface SBGRequestHeadersInterface {
-	        'session-id': string;
+	        'X-SBG-Auth-Token': string;
 	    }
 	    interface ApiInterface {
 	        request: Function;
@@ -18,7 +18,7 @@ declare module 'sbg-node' {
 	    interface ClientConfigInterface {
 	    }
 	    interface SBGConfigInterface {
-	        'session-id': string;
+	        'X-SBG-Auth-Token': string;
 	    }
 	    interface InstanceConfigInterface extends SBGConfigInterface {
 	        temp: string;
@@ -36,13 +36,12 @@ declare module 'sbg-node' {
 
 }
 declare module 'sbg-node' {
-	 class Greeter {
-	    greeting: string;
-	    da: string;
-	    constructor(message: string);
-	    greet(): string;
+	 class Config {
+	    config: any;
+	    constructor();
+	    getToken(): any;
 	}
-	export = Greeter;
+	export = Config;
 
 }
 declare module 'sbg-node' {
