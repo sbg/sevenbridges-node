@@ -10,7 +10,6 @@ var CONFIG = require('../lib/config');
 
 var conf = new CONFIG();
 
-console.log(util.inspect(conf, false, null));
 
 
 describe("sbg", function () {

@@ -22,12 +22,11 @@ class Config {
 
     constructor() {
         this.config = require(process.env.HOME + '/.sbg/configuration.json');
-
-        console.log('read', this.config);
-
     }
 
     getToken() {
+
+        /* @todo create object describing config */
         return this.config.auth_token;
     }
 
