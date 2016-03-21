@@ -5,6 +5,7 @@ export class Project extends Base {
 
     constructor() {
         super();
+        
         this.sessionId = '';
     }
 
