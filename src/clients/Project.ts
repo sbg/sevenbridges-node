@@ -43,5 +43,17 @@ export class Project extends Base {
     listMembers() {
         console.log('TBD');
     }
+
+    addMember() {
+        console.log('TBD');
+    }
+
+    getMemberPermissions() {
+        console.log('TBD');
+    }
+
+    setMemberPermissions() {
+        console.log('TBD');
+    }
 }
 
