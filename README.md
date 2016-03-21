@@ -9,6 +9,17 @@ Seven Bridges NodeJS Client implementation
     npm install
     tsd install
     
+    
+    
+create  file in `~/.sbg/configuration.json`
+
+
+with content
+
+    {
+        "auth_token" : "xxxxxxx"
+    }
+    
 
 
 ### Running tests:
