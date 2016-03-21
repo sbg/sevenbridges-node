@@ -36,16 +36,6 @@ declare module 'sbg-node' {
 
 }
 declare module 'sbg-node' {
-	 class Greeter {
-	    greeting: string;
-	    da: string;
-	    constructor(message: string);
-	    greet(): string;
-	}
-	export = Greeter;
-
-}
-declare module 'sbg-node' {
 	import { Interfaces } from 'interfaces/SBGInterfaces'; class SBG {
 	    Config: Interfaces.SBGConfigInterface;
 	    Api: Interfaces.ApiInterface;

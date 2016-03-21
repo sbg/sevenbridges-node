@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var util = require('gulp-util');
+
 var tslint = require('gulp-tslint');
 var exec = require('child_process').exec;
 var jasmine = require('gulp-jasmine');
@@ -10,6 +12,7 @@ var inject = require('gulp-inject');
 var gulpSequence = require('gulp-sequence');
 var del = require('del');
 var dtsGenerator = require('dts-generator');
+
 require('dotbin');
 
 var tsFilesGlob = (function (c) {
@@ -66,9 +69,11 @@ gulp.task('_build', 'INTERNAL TASK - Compiles all TypeScript source files', func
 gulp.task('build', 'Compiles all TypeScript source files and updates module references', gulpSequence('tslint', ['update-tsconfig', 'gen-def'], '_build'));
 
 gulp.task('test', 'Runs the Jasmine test specs', ['build'], function () {
-  return gulp.src('test/**/*.js')
+  return gulp.src(['test/**/*.js'], {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it
-        .pipe(mocha());
+      .pipe(mocha({ reporter: 'spec' }))
+      .on('error', util.log);
+
 });
 
 gulp.task('watch', 'Watches ts source files and runs build on change', function () {

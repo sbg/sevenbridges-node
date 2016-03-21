@@ -6,21 +6,21 @@ var expect = chai.expect
 
 var SBG = require("../lib/sbg");
 
-
 describe("sbg", function () {
-    it("should send request", function () {
+    it("should send request", function (done) {
 
-        var greeter = new SBG({
+        var Client = new SBG({
             'session-id': ''
         });
 
-        expect(greeter.send).not.to.be.undefined;
+        expect(Client.send).not.to.be.undefined;
 
-        greeter.send({
+        Client.send({
             method: 'GET',
             url: 'https://peon.sbgenomics.com/v0/tasks/?order=desc&order-by=timeStarted&offset=0&limit=10&status=ACTIVE&status=COMPLETED&status=FAILED&status=ABORTED&status=QUEUED'
         }, function (err, res) {
             console.log(err, res.body);
+            done();
         });
 
     });
