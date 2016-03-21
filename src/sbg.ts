@@ -1,4 +1,4 @@
-import {Interfaces} from './interfaces/SBGConfigInterfaces';
+import {Interfaces} from './interfaces/SBGInterfaces';
 import {Api} from './Api';
 
 class SBG {

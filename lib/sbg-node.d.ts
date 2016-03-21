@@ -1,4 +1,4 @@
-declare module 'sbg-nodeaces' {
+declare module 'sbg-node' {
 	export namespace Interfaces {
 	    interface HTTPResponseObject {
 	        err: any;
@@ -27,8 +27,9 @@ declare module 'sbg-nodeaces' {
 
 }
 declare module 'sbg-node' {
+	/// <reference path="../typings/request/request.d.ts" />
 	import * as Request from 'request';
-	import { Interfaces } from 'interfaces/SBGConfigInterfaces';
+	import { Interfaces } from 'interfaces/SBGInterfaces';
 	export module Api {
 	    function request(options: Interfaces.RequestOptionsInterface, callback: () => void): Request.Request;
 	}
@@ -45,7 +46,7 @@ declare module 'sbg-node' {
 
 }
 declare module 'sbg-node' {
-	import { Interfaces } from 'interfaces/SBGConfigInterfaces'; class SBG {
+	import { Interfaces } from 'interfaces/SBGInterfaces'; class SBG {
 	    Config: Interfaces.SBGConfigInterface;
 	    Api: Interfaces.ApiInterface;
 	    constructor(config: any);

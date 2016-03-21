@@ -1,5 +1,6 @@
 
 .idea/
+.vs-code/
 coverage/
 node_modules/
 typings/

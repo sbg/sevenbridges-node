@@ -1,4 +1,4 @@
-import { Interfaces } from './interfaces/SBGConfigInterfaces';
+import { Interfaces } from './interfaces/SBGInterfaces';
 declare class SBG {
     Config: Interfaces.SBGConfigInterface;
     Api: Interfaces.ApiInterface;

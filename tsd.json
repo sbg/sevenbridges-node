@@ -16,6 +16,9 @@
     },
     "q/Q.d.ts": {
       "commit": "cc3d223a946f661eff871787edeb0fcb8f0db156"
+    },
+    "fs-extra/fs-extra.d.ts": {
+      "commit": "cc3d223a946f661eff871787edeb0fcb8f0db156"
     }
   }
 }

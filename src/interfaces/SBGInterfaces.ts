@@ -32,4 +32,5 @@ export namespace Interfaces {
     export interface InstanceConfigInterface extends SBGConfigInterface {
         temp: string;
     }
+    
 }

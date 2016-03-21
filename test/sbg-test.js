@@ -1,8 +1,11 @@
 /**
  * Created by filip on 3/17/16.
  */
+var chai = require('chai');
+var expect = chai.expect
 
 var SBG = require("../lib/sbg");
+
 
 describe("sbg", function () {
     it("should send request", function () {
@@ -11,7 +14,7 @@ describe("sbg", function () {
             'session-id': ''
         });
 
-        expect(greeter.send).not.toBeUndefined();
+        expect(greeter.send).not.to.be.undefined;
 
         greeter.send({
             method: 'GET',

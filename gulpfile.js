@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var tslint = require('gulp-tslint');
 var exec = require('child_process').exec;
 var jasmine = require('gulp-jasmine');
+var mocha = require('gulp-mocha');
 var gulp = require('gulp-help')(gulp);
 var tsconfig = require('gulp-tsconfig-files');
 var path = require('path');
@@ -66,7 +67,8 @@ gulp.task('build', 'Compiles all TypeScript source files and updates module refe
 
 gulp.task('test', 'Runs the Jasmine test specs', ['build'], function () {
   return gulp.src('test/**/*.js')
-    .pipe(jasmine());
+        // gulp-mocha needs filepaths so you can't have any plugins before it
+        .pipe(mocha());
 });
 
 gulp.task('watch', 'Watches ts source files and runs build on change', function () {
