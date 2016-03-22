@@ -6,10 +6,9 @@ var expect = chai.expect
 var util = require('util');
 
 var SBG = require("../lib/sbg");
-var CONFIG = require('../lib/config');
+var Config = require('../lib/config').Config;
 
-var conf = new CONFIG();
-
+var conf = new Config();
 
 describe("sbg", function () {
     it("should send request", function (done) {
@@ -17,14 +16,15 @@ describe("sbg", function () {
         var Client = new SBG({
             'X-SBG-Auth-Token': conf.getToken()
         });
-        
+
         expect(Client.send).not.to.be.undefined;
 
         Client.send({
             method: 'GET',
             url: 'https://api.sbgenomics.com/v2/tasks'
         }, function (err, res) {
-            console.log(err, res.body);
+            expect(err).to.be.null;
+            expect(res.body).to.be.object;
             done();
         });
 

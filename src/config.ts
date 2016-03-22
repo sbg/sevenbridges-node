@@ -2,10 +2,7 @@
 import {Interfaces} from './interfaces/SBGInterfaces';
 /*
 
-
-
 create  file in ~/.sbg/configuration.json
-
 
 --- with content
 
@@ -14,21 +11,22 @@ create  file in ~/.sbg/configuration.json
 }
 
 
-
-
 */
+
+interface ConfigInterface {
+    auth_token: string;
+}
 
 export class Config implements Interfaces.ClientConfigInterface {
 
-    config : any;
+    private config : ConfigInterface;
 
     constructor() {
         this.config = require(process.env.HOME + '/.sbg/configuration.json');
     }
 
     getToken() {
-
-        /* @todo create object describing config */
+        /* @TODO create object describing config */
         return this.config.auth_token;
     }
 
