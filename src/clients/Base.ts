@@ -15,17 +15,27 @@ export class Base {
         this.Api = Api;
     }
 
-    _get(options: Interfaces.RequestOptionsInterface) {
+    _request(options: Interfaces.RequestOptionsInterface) {
 
         options.headers = {
             'X-SBG-Auth-Token': this.authToken
         };
 
-        options.method = options.method || 'GET';
+        options.method = options.method;
         options.json = true;
 
         return this.Api.request(options);
 
+    }
+
+    _get(options: Interfaces.RequestOptionsInterface) {
+        options.method = 'GET';
+        return this._request(options);
+    }
+
+    _post(options: Interfaces.RequestOptionsInterface) {
+        options.method = 'POST';
+        return this._request(options);
     }
 
 }

@@ -11,14 +11,13 @@ export namespace Interfaces {
         err: any;
         response: any;
     }
-
+    
     export interface RequestOptionsInterface {
-        method: string;
+        method?: string;
         url: string;
         headers?: SBGRequestHeadersInterface;
         json?: boolean;
     }
-
 
     export interface SBGRequestHeadersInterface {
         'X-SBG-Auth-Token': string;
