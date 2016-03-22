@@ -1,4 +1,3 @@
-
 import {Api} from '../Api';
 import {Config} from '../config';
 import {Interfaces} from '../interfaces/SBGInterfaces';

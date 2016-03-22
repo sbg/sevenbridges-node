@@ -1,4 +1,3 @@
-
 export namespace Interfaces {
 
     export interface APIResponseInterface {
@@ -29,6 +28,7 @@ export namespace Interfaces {
 
     export interface ClientConfigInterface {
         getToken : Function;
+
     }
 
     export interface SBGConfigInterface {
