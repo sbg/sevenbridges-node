@@ -21,6 +21,7 @@ describe("Projects Client Test", function () {
             expect(err).to.be.null;
             expect(data.body).not.to.be.null;
             expect(data.body.items.length).to.be.within(0, 50);
+            console.log(data.body.items);
             done();
         })
 
