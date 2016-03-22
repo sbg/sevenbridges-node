@@ -21,6 +21,7 @@
     "gulp-mocha": "^2.2.0",
     "gulp-util": "^3.0.7",
     "mocha": "^2.4.5",
+    "q": "^1.4.1",
     "request": "^2.69.0"
   },
   "devDependencies": {

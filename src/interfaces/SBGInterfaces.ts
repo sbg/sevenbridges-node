@@ -1,6 +1,11 @@
 
 export namespace Interfaces {
 
+    export interface APIResponseInterface {
+        response: any;
+        body: any;
+    }
+
     export interface HTTPResponseObject {
         err: any;
         response: any;
@@ -28,10 +33,6 @@ export namespace Interfaces {
 
     export interface SBGConfigInterface {
         'X-SBG-Auth-Token': string;
-    }
-
-    export interface InstanceConfigInterface extends SBGConfigInterface {
-        temp: string;
     }
 
     export interface ProjectClientInterface {

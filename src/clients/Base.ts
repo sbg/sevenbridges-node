@@ -5,27 +5,27 @@ import {Interfaces} from '../interfaces/SBGInterfaces';
 
 export class Base {
 
-    conf : Interfaces.ClientConfigInterface;
-    authToken : string;
-    Api: Interfaces.ApiInterface;
+    protected authToken : string;
+
+    private conf : Interfaces.ClientConfigInterface;
+    private Api : Interfaces.ApiInterface;
 
     constructor() {
-        this.conf = new Config();
+        this.conf = Config;
         this.authToken = this.conf.getToken();
         this.Api = Api;
     }
 
-    _get(options: Interfaces.RequestOptionsInterface, callback: Interfaces.HTTPResponseObject) {
+    _get(options: Interfaces.RequestOptionsInterface) {
 
         options.headers = {
             'X-SBG-Auth-Token': this.authToken
         };
 
-
-        options.method = 'GET';
+        options.method = options.method || 'GET';
         options.json = true;
 
-        this.Api.request(options, callback);
+        return this.Api.request(options);
 
     }
 

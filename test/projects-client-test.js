@@ -12,18 +12,19 @@ describe("Projects Client Test", function () {
 
     this.timeout(5000);
 
-    it("can list projects", function (done) {
+    it("Can list projects", function (done) {
 
-        var Client = new SBG();
+        var SBGClient = new SBG();
 
-        Client.Projects.list(function (err, data) {
+        SBGClient.Projects.list().then(function (data) {
 
-            expect(err).to.be.null;
             expect(data.body).not.to.be.null;
             expect(data.body.items.length).to.be.within(0, 50);
-            console.log(data.body.items);
             done();
-        })
+
+        }, function err(err) {
+            expect(err).to.be.null;
+        });
 
     });
 });
