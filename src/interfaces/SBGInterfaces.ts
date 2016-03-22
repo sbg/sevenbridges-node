@@ -1,5 +1,7 @@
 export namespace Interfaces {
 
+
+
     export interface APIResponseInterface {
         response: any;
         body: any;
@@ -35,7 +37,11 @@ export namespace Interfaces {
         'X-SBG-Auth-Token': string;
     }
 
-    export interface ProjectClientInterface {
+    export interface ClientInterface {
+
+    }
+
+    export interface ProjectClientInterface extends ClientInterface {
         list: Function;
     }
 

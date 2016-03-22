@@ -58,5 +58,6 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
     setMemberPermissions() {
         console.log('TBD');
     }
+    
 }
 
