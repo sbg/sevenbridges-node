@@ -22,7 +22,7 @@ export namespace Interfaces {
     }
 
     export interface ClientConfigInterface {
-        getToken: Function;
+        getToken : Function;
 
     }
 
