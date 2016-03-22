@@ -1,12 +1,11 @@
-
 import {Api} from '../Api';
 import {Config} from '../config';
 import {Interfaces} from '../interfaces/SBGInterfaces';
 
 export class Base {
 
-    conf : Interfaces.ClientConfigInterface;
-    authToken : string;
+    conf: Interfaces.ClientConfigInterface;
+    authToken: string;
     Api: Interfaces.ApiInterface;
 
     constructor() {

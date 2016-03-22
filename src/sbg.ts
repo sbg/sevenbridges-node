@@ -7,7 +7,7 @@ class SBG {
 
     Config: Interfaces.SBGConfigInterface;
     Api: Interfaces.ApiInterface;
-    Projects : Interfaces.ProjectClientInterface;
+    Projects: Interfaces.ProjectClientInterface;
 
     constructor(config: any) {
         this.Config = config;

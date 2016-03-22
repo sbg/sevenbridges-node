@@ -1,4 +1,3 @@
-
 export namespace Interfaces {
 
     export interface HTTPResponseObject {
@@ -23,7 +22,7 @@ export namespace Interfaces {
     }
 
     export interface ClientConfigInterface {
-        getToken : Function;
+        getToken: Function;
 
     }
 
