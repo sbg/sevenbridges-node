@@ -10,6 +10,7 @@ export namespace Interfaces {
         method: string;
         url: string;
         headers?: SBGRequestHeadersInterface;
+        json?: boolean;
     }
 
 
@@ -22,6 +23,7 @@ export namespace Interfaces {
     }
 
     export interface ClientConfigInterface {
+        getToken : Function;
 
     }
 
@@ -32,5 +34,9 @@ export namespace Interfaces {
     export interface InstanceConfigInterface extends SBGConfigInterface {
         temp: string;
     }
-    
+
+    export interface ProjectClientInterface {
+        list: Function;
+    }
+
 }

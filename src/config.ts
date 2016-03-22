@@ -1,5 +1,7 @@
 /// <reference path="../typings/node/node.d.ts" />
+import {Interfaces} from './interfaces/SBGInterfaces';
 /*
+
 
 
 create  file in ~/.sbg/configuration.json
@@ -16,7 +18,7 @@ create  file in ~/.sbg/configuration.json
 
 */
 
-class Config {
+export class Config implements Interfaces.ClientConfigInterface {
 
     config : any;
 
@@ -31,5 +33,3 @@ class Config {
     }
 
 }
-
-export = Config;
