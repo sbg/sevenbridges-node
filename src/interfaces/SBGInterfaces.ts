@@ -1,7 +1,5 @@
 export namespace Interfaces {
 
-
-
     export interface APIResponseInterface {
         response: any;
         body: any;

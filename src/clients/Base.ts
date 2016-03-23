@@ -1,6 +1,9 @@
-import {Api} from '../Api';
+/// <reference path="../../typings/lodash/lodash.d.ts" />
+
+import {Api} from '../api/Api';
 import {Config} from '../config';
 import {Interfaces} from '../interfaces/SBGInterfaces';
+import * as _ from 'lodash';
 
 export class Base {
 
@@ -17,9 +20,15 @@ export class Base {
 
     _request(options: Interfaces.RequestOptionsInterface) {
 
-        options.headers = {
+        let headers: Interfaces.SBGRequestHeadersInterface = {
             'X-SBG-Auth-Token': this.authToken
         };
+
+        if (typeof options.headers !== 'object') {
+            options.headers = headers;
+        } else {
+            _.extend(options.headers, headers);
+        }
 
         options.method = options.method || 'GET';
         options.json = true;

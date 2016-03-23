@@ -1,5 +1,4 @@
 import {Interfaces} from './interfaces/SBGInterfaces';
-import {Api} from './Api';
 
 import {Project} from './clients/Project';
 

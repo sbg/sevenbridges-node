@@ -1,10 +1,10 @@
-/// <reference path="../typings/request/request.d.ts" />
-/// <reference path="../typings/q/Q.d.ts" />
+/// <reference path="../../typings/request/request.d.ts" />
+/// <reference path="../../typings/q/Q.d.ts" />
 
 import * as Q from 'q';
 
 import * as Request from 'request';
-import {Interfaces} from './interfaces/SBGInterfaces';
+import {Interfaces} from './../interfaces/SBGInterfaces';
 
 export module Api {
 

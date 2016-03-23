@@ -15,13 +15,15 @@
   ],
   "files": [
     "typings/tsd.d.ts",
-    "src/Api.ts",
     "src/config.ts",
     "src/sbg.ts",
+    "src/api/Api.ts",
+    "src/api/config.ts",
     "src/clients/Auth.ts",
     "src/clients/Base.ts",
     "src/clients/Project.ts",
     "src/clients/Task.ts",
+    "src/interfaces/ProjectInterfaces.ts",
     "src/interfaces/SBGInterfaces.ts"
   ]
 }
