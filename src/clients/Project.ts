@@ -142,6 +142,7 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      *
      * @param owner
      * @param id
+     * @param member
      * @returns {*}
      */
     addMember(owner: string, id: string, member: ProjectInterfaces.ProjectMemberInterface) {
