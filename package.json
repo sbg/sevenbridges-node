@@ -21,6 +21,7 @@
     "lib"
   ],
   "scripts": {
+    "postinstall": "tsd install",
     "test": "gulp test",
     "build": "gulp build"
   },

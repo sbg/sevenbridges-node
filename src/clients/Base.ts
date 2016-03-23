@@ -63,7 +63,7 @@ export class Base {
 
     _delete(options: Interfaces.RequestOptionsInterface, body?: any) {
         options.method = 'DELETE';
-        return this._request(options, body)
+        return this._request(options, body);
     }
 
 }

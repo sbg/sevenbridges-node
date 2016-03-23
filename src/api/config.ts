@@ -1,8 +1,8 @@
-/// <reference path="../../node_modules/typescript/lib/lib.core.d.ts" />
+/// <reference path="../../typings/node/node.d.ts" />
 
 export namespace ApiConfig {
 
-    var apiUrlTemplate: string = 'https://<api-env>api.sbgenomics.com/'
+    var apiUrlTemplate: string = 'https://<api-env>api.sbgenomics.com/';
 
     export var baseUrl: string = 'https://api.sbgenomics.com/';
     export var apiVersion: string = 'v2';

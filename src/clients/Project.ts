@@ -7,7 +7,7 @@ import {ApiConfig} from '../api/config';
 
 export class Project extends Base implements Interfaces.ProjectClientInterface {
 
-    public url:string = ApiConfig.apiUrl + ApiConfig.urls.projects_url;
+    public url: string = ApiConfig.apiUrl + ApiConfig.urls.projects_url;
 
     constructor() {
         super();
@@ -40,9 +40,7 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      *   'type': 'v2'
      * }
      */
-    create(project:ProjectInterfaces.NewProjectInterface) {
-        console.log('TBD');
-
+    create(project: ProjectInterfaces.NewProjectInterface) {
         let options = {
             url: this.url
         };
@@ -66,7 +64,7 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      * @param project
      * @returns {*}
      */
-    edit(owner: string, id: string, project:ProjectInterfaces.UpdateProjectInterface) {
+    edit(owner: string, id: string, project: ProjectInterfaces.UpdateProjectInterface) {
 
         let options = {
             url: this.url + '/' + owner + '/' + id

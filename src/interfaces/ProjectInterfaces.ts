@@ -4,7 +4,6 @@ export module ProjectInterfaces {
         read?: boolean;
         write?: boolean;
         execute?: boolean;
-        read?: boolean;
         copy?: boolean;
         admin?: boolean;
     }
