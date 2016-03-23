@@ -6,11 +6,12 @@ export class Base {
 
     protected authToken : string;
 
+    private config : Interfaces.ClientConfigInterface;
     private Api : Interfaces.ApiInterface;
 
     constructor() {
-
-        this.authToken = Config.getToken();
+        this.config = Config;
+        this.authToken = this.config.getToken();
         this.Api = Api;
     }
 
@@ -20,6 +21,7 @@ export class Base {
             'X-SBG-Auth-Token': this.authToken
         };
 
+        options.method = options.method || 'GET';
         options.json = true;
 
         return this.Api.request(options);

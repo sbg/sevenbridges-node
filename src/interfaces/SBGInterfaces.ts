@@ -11,7 +11,7 @@ export namespace Interfaces {
         err: any;
         response: any;
     }
-    
+
     export interface RequestOptionsInterface {
         method?: string;
         url: string;
@@ -28,8 +28,8 @@ export namespace Interfaces {
     }
 
     export interface ClientConfigInterface {
-        getToken : Function;
-
+        getConfig: () => any;
+        getToken : () => string;
     }
 
     export interface SBGConfigInterface {
