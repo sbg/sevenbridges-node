@@ -2,6 +2,8 @@
 
 export namespace ApiConfig {
 
+    var apiUrlTemplate: string = 'https://<api-env>api.sbgenomics.com/'
+
     export var baseUrl: string = 'https://api.sbgenomics.com/';
     export var apiVersion: string = 'v2';
     export var apiUrl: string = baseUrl + apiVersion;
@@ -18,9 +20,19 @@ export namespace ApiConfig {
         action_url: '/action'
     };
 
+    function updateApiUrl(): void {
+        apiUrl = baseUrl + apiVersion;
+    }
+
+    export function updateApiEnvironment(env: string): void {
+        baseUrl = apiUrlTemplate.replace('<api-env>', env === 'aws' ? '' : env + '-' );
+        updateApiUrl();
+    }
+
     export function updateApiVersion(version: number): void {
         apiVersion = 'v' + version;
         apiUrl = baseUrl + apiVersion;
+        updateApiUrl();
     }
 
     export function getApiEndpoint(): string {

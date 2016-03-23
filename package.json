@@ -3,8 +3,17 @@
   "version": "0.0.0",
   "description": "sbg-node",
   "license": "MIT",
-  "repository": "",
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flipio/sbg-node-client"
+  },
+  "author": "Filip Jelic <jelic.filip@gmail.com>",
+  "contributors": [
+    {
+      "name": "Dragan Bajcic",
+      "email": "dragan@bajcic.com"
+    }
+  ],
   "keywords": [
     ""
   ],
@@ -16,18 +25,19 @@
     "build": "gulp build"
   },
   "dependencies": {
-    "chai": "^3.5.0",
     "fs-extra": "^0.26.7",
-    "gulp-mocha": "^2.2.0",
-    "gulp-util": "^3.0.7",
-    "mocha": "^2.4.5",
+    "lodash": "^4.6.1",
     "q": "^1.4.1",
     "request": "^2.69.0"
   },
   "devDependencies": {
+    "mocha": "^2.4.5",
+    "chai": "^3.5.0",
     "del": "2.0.2",
     "dotbin": "^1.0",
     "dts-generator": "^1.7",
+    "gulp-util": "^3.0.7",
+    "gulp-mocha": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-help": "^1.6.0",
     "gulp-inject": "3.0.0",

@@ -15,6 +15,7 @@ export namespace Interfaces {
         url: string;
         headers?: SBGRequestHeadersInterface;
         json?: boolean;
+        body?: any;
     }
 
     export interface SBGRequestHeadersInterface {

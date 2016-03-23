@@ -1,5 +1,5 @@
 /// <reference path="../typings/node/node.d.ts" />
-import {Interfaces} from './interfaces/SBGInterfaces';
+
 /*
 
 create  file in ~/.sbg/configuration.json
@@ -23,6 +23,10 @@ try {
 }
 
 export module Config {
+
+    export function setConfig(conf: ConfigInterface): void {
+        config = conf;
+    }
 
     export function getConfig(): ConfigInterface {
         return config;
