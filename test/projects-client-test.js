@@ -12,7 +12,6 @@ var errFn = function(e) {
     throw Error(e);
 };
 
-
 describe('Projects Client Test', function () {
 
     var SBG, project,

@@ -1,13 +1,12 @@
-import {Interfaces} from './interfaces/SBGInterfaces';
-import {ProjectInterfaces} from './interfaces/ProjectInterfaces';
+import {ClientInterfaces} from './interfaces/ClientInterfaces';
 
 import {Project} from './clients/Project';
 import {Billing} from './clients/Billing';
 
 class SBG {
 
-    Projects : ProjectInterfaces.ProjectClientInterface;
-    Billing : Interfaces.BillingClientInterface;
+    Projects : ClientInterfaces.ProjectClientInterface;
+    Billing : ClientInterfaces.BillingClientInterface;
 
     constructor() {
         this.instantiateClients();

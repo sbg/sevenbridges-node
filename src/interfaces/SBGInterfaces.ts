@@ -1,3 +1,4 @@
+
 export namespace Interfaces {
 
     export interface HTTPResponseObject {
@@ -32,9 +33,6 @@ export namespace Interfaces {
 
     export interface ClientInterface {
         list: Function;
-    }
-
-    export interface BillingClientInterface extends ClientInterface {
     }
 
 }

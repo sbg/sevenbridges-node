@@ -1,6 +1,6 @@
 import {Interfaces} from './SBGInterfaces';
 
-export module ProjectInterfaces {
+export namespace ProjectInterfaces {
 
     export interface ProjectClientInterface extends Interfaces.ClientInterface {
         list: Function;
