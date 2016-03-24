@@ -31,15 +31,10 @@ export namespace Interfaces {
     }
 
     export interface ClientInterface {
-
+        list: Function;
     }
 
     export interface BillingClientInterface extends ClientInterface {
-        list: Function;
-    }
-
-    export interface ProjectClientInterface extends ClientInterface {
-        list: Function;
     }
 
 }

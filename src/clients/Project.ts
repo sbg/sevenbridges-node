@@ -1,11 +1,10 @@
 import {Base} from './Base';
-import {Interfaces} from '../interfaces/SBGInterfaces';
 import {ProjectInterfaces} from '../interfaces/ProjectInterfaces';
 
 import {ApiConfig} from '../api/config';
 
 
-export class Project extends Base implements Interfaces.ProjectClientInterface {
+export class Project extends Base implements ProjectInterfaces.ProjectClientInterface {
 
     public url: string = ApiConfig.apiUrl + ApiConfig.urls.projects_url;
 

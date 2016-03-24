@@ -1,4 +1,21 @@
+import {Interfaces} from './SBGInterfaces';
+
 export module ProjectInterfaces {
+
+    export interface ProjectClientInterface extends Interfaces.ClientInterface {
+        list: Function;
+        create: Function;
+        delete: Function;
+        edit: Function;
+        listByUserName: Function;
+        getDetails: Function;
+        listMembers: Function;
+        addMember: Function;
+        removeMember: Function;
+        getMemberPermissions: Function;
+        editMemberPermissions: Function;
+        overwriteMemberPermissions: Function;
+    }
 
     export interface ProjectPermissionsInterface {
         read?: boolean;
