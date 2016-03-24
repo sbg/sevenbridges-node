@@ -1,10 +1,5 @@
 export namespace Interfaces {
 
-    export interface APIResponseInterface {
-        response: any;
-        body: any;
-    }
-
     export interface HTTPResponseObject {
         err: any;
         response: any;
@@ -37,6 +32,10 @@ export namespace Interfaces {
 
     export interface ClientInterface {
 
+    }
+
+    export interface BillingClientInterface extends ClientInterface {
+        list: Function;
     }
 
     export interface ProjectClientInterface extends ClientInterface {

@@ -64,10 +64,10 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      * @param project
      * @returns {*}
      */
-    edit(owner: string, id: string, project: ProjectInterfaces.UpdateProjectInterface) {
+    edit(id: string, project: ProjectInterfaces.UpdateProjectInterface) {
 
         let options = {
-            url: this.url + '/' + owner + '/' + id
+            url: this.url + '/' + id
         };
 
         return this._patch(options, project);
@@ -89,9 +89,9 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
     }
 
 
-    delete(owner: string, id: string) {
+    delete(id: string) {
         let options = {
-            url: this.url + '/' + owner + '/' + id
+            url: this.url + '/' + id
         };
 
         return this._delete(options);
@@ -103,10 +103,10 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      * @param owner
      * @param id
      */
-    getDetails(owner: string, id: string) {
+    getDetails(id: string) {
 
         let options = {
-            url: this.url + '/' + owner + '/' + id
+            url: this.url + '/' + id
         };
 
         return this._get(options);
@@ -118,10 +118,10 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      * @param owner
      * @param id
      */
-    listMembers(owner: string, id: string) {
+    listMembers(id: string) {
 
         let options = {
-            url: this.url + '/' + owner + '/' + id + '/members'
+            url: this.url + id + '/members'
         };
 
         return this._get(options);
@@ -145,9 +145,9 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      * @param member
      * @returns {*}
      */
-    addMember(owner: string, id: string, member: ProjectInterfaces.ProjectMemberInterface) {
+    addMember(id: string, member: ProjectInterfaces.ProjectMemberInterface) {
         let options = {
-            url: this.url + '/' + owner + '/' + id + '/members'
+            url: this.url + '/' + id + '/members'
         };
 
         return this._post(options, member);
@@ -161,17 +161,17 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      * @param username
      * @returns {*}
      */
-    removeMember(owner: string, id: string, username: string) {
+    removeMember(id: string, username: string) {
         let options = {
-            url: this.url + '/' + owner + '/' + id + '/members/' + username
+            url: this.url + '/' + id + '/members/' + username
         };
 
         return this._delete(options);
     }
 
-    getMemberPermissions(owner: string, id: string, username: string) {
+    getMemberPermissions(id: string, username: string) {
         let options = {
-            url: this.url + '/' + owner + '/' + id + '/members/' + username
+            url: this.url + '/' + id + '/members/' + username
         };
 
         return this._get(options);
@@ -194,9 +194,9 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      * @param permissions
      * @returns {*}
      */
-    editMemberPermissions(owner: string, id: string, username: string, permissions: ProjectInterfaces.ProjectPermissionsInterface) {
+    editMemberPermissions(id: string, username: string, permissions: ProjectInterfaces.ProjectPermissionsInterface) {
         let options = {
-            url: this.url + '/' + owner + '/' + id + '/members/' + username + '/permissions'
+            url: this.url + '/' + id + '/members/' + username + '/permissions'
         };
 
         return this._patch(options, permissions);
@@ -213,16 +213,15 @@ export class Project extends Base implements Interfaces.ProjectClientInterface {
      *    "execute": false
      * }
      *
-
      * @param owner
      * @param id
      * @param username
      * @param permissions
      * @returns {*}
      */
-    overwriteMemberPermissions(owner: string, id: string, username: string, permissions: ProjectInterfaces.ProjectPermissionsInterface) {
+    overwriteMemberPermissions(id: string, username: string, permissions: ProjectInterfaces.ProjectPermissionsInterface) {
         let options = {
-            url: this.url + '/' + owner + '/' + id + '/members/' + username + '/permissions'
+            url: this.url + '/' + id + '/members/' + username + '/permissions'
         };
 
         return this._put(options, permissions);

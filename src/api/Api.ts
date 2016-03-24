@@ -8,7 +8,7 @@ import {Interfaces} from './../interfaces/SBGInterfaces';
 
 export module Api {
 
-    export function request(options: Interfaces.RequestOptionsInterface): Q.IPromise<Interfaces.APIResponseInterface> {
+    export function request(options: Interfaces.RequestOptionsInterface): Q.IPromise<any> {
 
         let deferred = Q.defer();
 
@@ -18,12 +18,7 @@ export module Api {
                 deferred.reject(err);
             }
 
-            let DefferedResponse: Interfaces.APIResponseInterface = {
-                response: res,
-                body: body
-            };
-
-            deferred.resolve(DefferedResponse);
+            deferred.resolve(body);
         });
 
         return deferred.promise;
