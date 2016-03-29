@@ -6,12 +6,17 @@ export namespace Interfaces {
         response: any;
     }
 
+    export interface QuertStringInterface {
+        fields?: string;
+    }
+
     export interface RequestOptionsInterface {
         method?: string;
         url: string;
         headers?: SBGRequestHeadersInterface;
         json?: boolean;
         body?: any;
+        qs?: QuertStringInterface;
     }
 
     export interface SBGRequestHeadersInterface {
@@ -32,7 +37,7 @@ export namespace Interfaces {
     }
 
     export interface ClientInterface {
-        list: Function;
+        url: string;
     }
 
 }

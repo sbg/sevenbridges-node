@@ -19,7 +19,7 @@ describe('Billing Client Test', function () {
         done();
     });
 
-    it('Can list billing groups', function (done) {
+    it('Can list billing groups.', function (done) {
 
         SBG.Billing.list().then(function (data) {
 
@@ -32,4 +32,22 @@ describe('Billing Client Test', function () {
         });
 
     });
+
+    it('Can get billing group breakdown.', function (done) {
+        //TODO
+    });
+
+    it('Can get billing group details.', function (done) {
+        //TODO
+    });
+
+    it('Can list invoices.', function (done) {
+        //TODO
+    });
+
+    it('Can get invoice details.', function (done) {
+        //TODO
+    });
+
+
 });

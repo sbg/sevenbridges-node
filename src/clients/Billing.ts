@@ -4,6 +4,9 @@ import {ApiConfig} from '../api/config';
 
 export class Billing extends Base implements BillingInterfaces.BillingClientInterface {
 
+    // default url exported
+    public url: string = this.groupsUrl;
+
     public groupsUrl: string = ApiConfig.apiUrl + ApiConfig.urls.billing_url + '/groups';
     public invoicesUrl: string = ApiConfig.apiUrl + ApiConfig.urls.billing_url + '/invoices';
 
@@ -22,6 +25,12 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
         });
     }
 
+    /**
+     * Get billing group details
+     *
+     * @param id
+     * @returns {*}
+     */
     getBillingGrup(id: string) {
         return this._get({
             url: this.groupsUrl + '/' + id

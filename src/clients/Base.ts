@@ -37,6 +37,14 @@ export class Base {
             options.body = body;
         }
 
+        if (typeof options.qs !== 'object') {
+            options.qs = {};
+        }
+
+        if (options.qs.fields) {
+           //TODO: Validate query string fields to match SBG fields restrictions.
+        }
+
         return this.Api.request(options);
 
     }

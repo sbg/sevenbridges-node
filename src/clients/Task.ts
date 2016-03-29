@@ -5,7 +5,6 @@ export class Task extends Base {
 
     constructor() {
         super();
-        this.sessionId = '';
     }
 
 }
