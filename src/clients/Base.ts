@@ -5,7 +5,7 @@ import {Config} from '../config';
 import {Interfaces} from '../interfaces/SBGInterfaces';
 import * as _ from 'lodash';
 
-export class Base {
+export class Base implements Interfaces.BaseClientInterface {
 
     protected authToken : string;
 
@@ -18,7 +18,7 @@ export class Base {
         this.Api = Api;
     }
 
-    _request(options: Interfaces.RequestOptionsInterface, body?: any) {
+    _request(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>  {
 
         let headers: Interfaces.SBGRequestHeadersInterface = {
             'X-SBG-Auth-Token': this.authToken
@@ -49,27 +49,27 @@ export class Base {
 
     }
 
-    _get(options: Interfaces.RequestOptionsInterface) {
+    _get(options: Interfaces.RequestOptionsInterface): Q.IPromise<any> {
         options.method = 'GET';
         return this._request(options);
     }
 
-    _post(options: Interfaces.RequestOptionsInterface, body?: any) {
+    _post(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
         options.method = 'POST';
         return this._request(options, body);
     }
 
-    _patch(options: Interfaces.RequestOptionsInterface, body?: any) {
+    _patch(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
         options.method = 'PATCH';
         return this._request(options, body);
     }
 
-    _put(options: Interfaces.RequestOptionsInterface, body?: any) {
+    _put(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
         options.method = 'PUT';
         return this._request(options, body);
     }
 
-    _delete(options: Interfaces.RequestOptionsInterface, body?: any) {
+    _delete(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
         options.method = 'DELETE';
         return this._request(options, body);
     }

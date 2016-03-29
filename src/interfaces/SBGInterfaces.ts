@@ -1,3 +1,6 @@
+/// <reference path="../../typings/q/Q.d.ts" />
+
+import * as Q from 'q';
 
 export namespace Interfaces {
 
@@ -38,6 +41,15 @@ export namespace Interfaces {
 
     export interface ClientInterface {
         url: string;
+    }
+
+    export interface BaseClientInterface {
+        _get(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
+        _post(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
+        _put(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
+        _patch(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
+        _delete(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
+        _request(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
     }
 
 }
