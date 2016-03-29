@@ -6,13 +6,14 @@ var expect = chai.expect
 var util = require('util');
 
 var SBGClient = require('../lib/sbg');
+var config = require('../config/tests');
 
 
 describe('Billing Client Test', function () {
 
     var SBG;
 
-    this.timeout(60000);
+    this.timeout(config.testTimeout);
 
     before(function(done) {
         SBG = new SBGClient();
@@ -35,18 +36,22 @@ describe('Billing Client Test', function () {
 
     it('Can get billing group breakdown.', function (done) {
         //TODO
+        done();
     });
 
     it('Can get billing group details.', function (done) {
         //TODO
+        done();
     });
 
     it('Can list invoices.', function (done) {
         //TODO
+        done();
     });
 
     it('Can get invoice details.', function (done) {
         //TODO
+        done();
     });
 
 

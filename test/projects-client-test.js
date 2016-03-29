@@ -7,6 +7,9 @@ var util = require('util');
 
 var SBGClient = require('../lib/sbg');
 
+var config = require('../config/tests');
+
+
 var errFn = function(e) {
     console.log('Error occured', e);
     throw Error(e);
@@ -17,7 +20,7 @@ describe('Projects Client Test', function () {
     var SBG, project,
         billing_group = '';
 
-    this.timeout(60000);
+    this.timeout(config.testTimeout);
 
     before(function(done) {
 
