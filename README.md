@@ -25,4 +25,9 @@ with content
 ### Running tests:
 
     gulp test
+    
+Running specifig client tests:
+    
+    gulp test --test user # will run only tests/user-client-test.js
+    
 
