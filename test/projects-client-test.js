@@ -44,7 +44,7 @@ describe('Projects Client Test', function () {
 
             }).catch(errFn);
 
-        }).catch(errFn);;
+        }).catch(errFn);
 
     });
 
