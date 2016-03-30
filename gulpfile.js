@@ -77,7 +77,7 @@ gulp.task('build', 'Compiles all TypeScript source files and updates module refe
 gulp.task('test', 'Runs the Jasmine test specs', ['build'], function () {
 
     var glob = util.env.test ? 'test/' + util.env.test + '-client-test.js' : 'test/**/*.js';
-    
+
     return gulp.src([glob], {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({reporter: 'spec'}))

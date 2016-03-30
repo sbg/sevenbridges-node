@@ -5,6 +5,7 @@ export namespace UserInterfaces {
     export interface UserClientInterface extends Interfaces.ClientInterface {
         info: Function;
         listResources: Function;
+        getRateLimit: Function;
     }
 
 }

@@ -28,7 +28,7 @@ describe('User Client Test', function () {
             expect(data).to.not.be.undefined;
         })
         .catch(function (e) {
-            expect(ec).to.be.undefined;
+            expect(e).to.be.undefined;
         })
         .finally(function() {
             done();
@@ -39,6 +39,20 @@ describe('User Client Test', function () {
     it('Can get user other user information.', function (done) {
         //TODO: waiting for support for organizations?
         done();
+    });
+
+    it('Can get user rate limits.', function (done) {
+        SBG.User.getRateLimit()
+            .then(function (data) {
+                expect(data).to.not.be.undefined;
+                expect(data.rate).to.not.be.undefined;
+            })
+            .catch(function (e) {
+                expect(e).to.be.undefined;
+            })
+            .finally(function () {
+                done();
+            })
     });
 
 });
