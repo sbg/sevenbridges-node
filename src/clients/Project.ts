@@ -15,7 +15,7 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
     /**
      * List projects
      *
-     * @returns {*}
+     * @returns {Q.IPromise<any>}
      */
     list() {
 
@@ -38,6 +38,9 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      *   'billing_group': '1f0c2751-694c-4e98-b863-06b68f5a61ca'
      *   'type': 'v2'
      * }
+     *
+     * @param project
+     * @returns {Q.IPromise<any>}
      */
     create(project: ProjectInterfaces.NewProjectInterface) {
         let options = {
@@ -58,10 +61,9 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      *   'billing_group': '1f0c2751-694c-4e98-b863-06b68f5a61ca'
      * }
      *
-     * @param owner
      * @param id
      * @param project
-     * @returns {*}
+     * @returns {Q.IPromise<any>}
      */
     edit(id: string, project: ProjectInterfaces.UpdateProjectInterface) {
 
@@ -76,7 +78,7 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * List the projects owned by and accessible to a particular user
      *
      * @param username
-     * @returns {*}
+     * @returns {Q.IPromise<any>}
      */
     listByUserName(username: string) {
 
@@ -87,7 +89,12 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
         return this._get(options);
     }
 
-
+    /**
+     * Delete Project
+     *
+     * @param id
+     * @returns {Q.IPromise<any>}
+     */
     delete(id: string) {
         let options = {
             url: this.url + '/' + id
@@ -99,8 +106,8 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
     /**
      * Get details of a project
      *
-     * @param owner
      * @param id
+     * @returns {Q.IPromise<any>}
      */
     getDetails(id: string) {
 
@@ -114,8 +121,8 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
     /**
      * List project members
      *
-     * @param owner
      * @param id
+     * @returns {Q.IPromise<any>}
      */
     listMembers(id: string) {
 
@@ -139,10 +146,9 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      *    }
      * }
      *
-     * @param owner
      * @param id
      * @param member
-     * @returns {*}
+     * @returns {Q.IPromise<any>}
      */
     addMember(id: string, member: ProjectInterfaces.ProjectMemberInterface) {
         let options = {
@@ -155,10 +161,9 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
     /**
      * Remove member from project
      *
-     * @param owner
      * @param id
      * @param username
-     * @returns {*}
+     * @returns {Q.IPromise<any>}
      */
     removeMember(id: string, username: string) {
         let options = {
@@ -191,7 +196,7 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @param id
      * @param username
      * @param permissions
-     * @returns {*}
+     * @returns {Q.IPromise<any>}
      */
     editMemberPermissions(id: string, username: string, permissions: ProjectInterfaces.ProjectPermissionsInterface) {
         let options = {
@@ -216,7 +221,7 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @param id
      * @param username
      * @param permissions
-     * @returns {*}
+     * @returns {Q.IPromise<any>}
      */
     overwriteMemberPermissions(id: string, username: string, permissions: ProjectInterfaces.ProjectPermissionsInterface) {
         let options = {

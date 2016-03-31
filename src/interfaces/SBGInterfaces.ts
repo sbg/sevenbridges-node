@@ -11,6 +11,7 @@ export namespace Interfaces {
 
     export interface QuertStringInterface {
         fields?: string;
+        projectId?: string;
     }
 
     export interface RequestOptionsInterface {

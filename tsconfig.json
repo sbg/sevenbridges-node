@@ -22,11 +22,13 @@
     "src/clients/Auth.ts",
     "src/clients/Base.ts",
     "src/clients/Billing.ts",
+    "src/clients/File.ts",
     "src/clients/Project.ts",
     "src/clients/Task.ts",
     "src/clients/User.ts",
     "src/interfaces/BillingInterfaces.ts",
     "src/interfaces/ClientInterfaces.ts",
+    "src/interfaces/FileInterfaces.ts",
     "src/interfaces/ProjectInterfaces.ts",
     "src/interfaces/SBGInterfaces.ts",
     "src/interfaces/UserInterfaces.ts"
