@@ -2,7 +2,7 @@ import {Base} from './Base';
 import {FileInterfaces} from '../interfaces/FileInterfaces';
 import {ApiConfig} from '../api/config';
 
-class File extends Base implements FileInterfaces.FileClientInterface {
+export class File extends Base implements FileInterfaces.FileClientInterface {
 
     public url: string = ApiConfig.urls.files_url;
 
@@ -155,7 +155,7 @@ class File extends Base implements FileInterfaces.FileClientInterface {
 
     /**
      * Overwrite files metadata
-     * 
+     *
      * @param fileId
      * @param metadata
      * @param fields
