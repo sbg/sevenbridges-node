@@ -16,6 +16,7 @@ export module Api {
 
             if (err) {
                 deferred.reject(err);
+                return;
             }
 
             deferred.resolve(body);

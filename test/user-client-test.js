@@ -10,7 +10,6 @@ var util = require('../util/test-util');
 
 var SBGClient = require('../lib/sbg');
 
-
 describe('User Client Test', function () {
 
     var SBG;
@@ -22,22 +21,19 @@ describe('User Client Test', function () {
         done();
     });
 
-
     it('Can get user information.', function (done) {
-        //TODO
+
         SBG.User.info().then(function (data) {
             expect(data).to.not.be.undefined;
         })
-        .catch(function (e) {
-            expect(e).to.be.undefined;
-        })
+        .catch(util.errFn)
         .finally(function() {
             done();
         });
 
     });
 
-    it('Can get user other user information.', function (done) {
+    it('Can get other user information.', function (done) {
         //TODO: waiting for support for organizations?
         done();
     });
@@ -47,10 +43,9 @@ describe('User Client Test', function () {
             .then(function (data) {
                 expect(data).to.not.be.undefined;
                 expect(data.rate).to.not.be.undefined;
+                expect(data.remaining).to.not.be.undefined;
             })
-            .catch(function (e) {
-                expect(e).to.be.undefined;
-            })
+            .catch(util.errFn)
             .finally(function () {
                 done();
             })

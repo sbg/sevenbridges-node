@@ -6,10 +6,10 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
 
     public url: string = this.user_url;
 
-    public user_url: string = ApiConfig.urls.user_url;
-    public users_url: string = ApiConfig.urls.users_url;
+    public user_url: string = ApiConfig.apiUrl + ApiConfig.urls.user_url;
+    public users_url: string = ApiConfig.apiUrl + ApiConfig.urls.users_url;
 
-    public rate_limit_url: string = ApiConfig.urls.rate_limit_url;
+    public rate_limit_url: string = ApiConfig.apiUrl + ApiConfig.urls.rate_limit_url;
 
     constructor() {
         super();
@@ -42,7 +42,7 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
 
     /**
      * Get user current rate limit status
-     * 
+     *
      * @returns {Q.IPromise<any>}
      */
     getRateLimit() {
