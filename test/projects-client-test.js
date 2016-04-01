@@ -8,12 +8,10 @@ var util = require('util');
 var SBGClient = require('../lib/sbg');
 
 var config = require('../config/tests');
+var util = require('../util/test-util');
 
 
-var errFn = function(e) {
-    console.log('Error occured', e);
-    throw Error(e);
-};
+var errFn = util.errFn;
 
 describe('Projects Client Test', function () {
 

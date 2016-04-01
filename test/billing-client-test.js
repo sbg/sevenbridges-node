@@ -7,6 +7,7 @@ var util = require('util');
 
 var SBGClient = require('../lib/sbg');
 var config = require('../config/tests');
+var util = require('../util/test-util');
 
 
 describe('Billing Client Test', function () {
@@ -28,9 +29,7 @@ describe('Billing Client Test', function () {
             expect(data.items.length).to.be.within(0, 100);
             done();
 
-        }, function (e) {
-            throw e;
-        });
+        }, util.errFn);
 
     });
 

@@ -6,6 +6,7 @@ var expect = chai.expect
 var util = require('util');
 
 var config = require('../config/tests');
+var util = require('../util/test-util');
 
 var SBGClient = require('../lib/sbg');
 
