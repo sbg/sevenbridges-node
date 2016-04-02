@@ -24,56 +24,56 @@ describe('Projects Client Test', function () {
 
         SBG = new SBGClient();
 
-        SBG.Billing.list().then(function(res) {
+        SBG.Billing.list().done(function(res) {
 
             expect(res.items.length).to.be.at.least(1);
-
+            expect(res.items[0].id).to.not.be.undefined;
             billing_group = res.items[0].id;
 
             SBG.Projects.create({
                 'name': 'My extra test project ' + Date.now(),
                 'description': 'A project for testing my apps in a very cool way',
                 'billing_group': billing_group
-            }).then(function (res) {
-
+            }).done(function (res) {
+                expect(res).to.not.be.undefined;
                 console.log('Successfully created project');
                 project = res;
                 done();
 
-            }).catch(errFn);
+            }, errFn);
 
-        }).catch(errFn);
+        }, errFn);
 
     });
 
     after(function(done) {
         // runs after all tests in this block
-        SBG.Projects.delete(project.id).then(function() {
+        SBG.Projects.delete(project.id).done(function() {
             console.log('Successfully deleted project');
             done();
-        }).catch(errFn);
+        }, errFn);
     });
 
     it('Can get project details', function(done) {
 
-        SBG.Projects.getDetails(project.id).then(function (data) {
+        SBG.Projects.getDetails(project.id).done(function (data) {
 
             expect(data).not.to.be.null;
             expect(data.id).to.be.equal(project.id);
             done();
 
-        }).catch(errFn);
+        }, errFn);
     });
 
     it('Can list projects', function (done) {
 
-        SBG.Projects.list().then(function (data) {
+        SBG.Projects.list().done(function (data) {
 
             expect(data).not.to.be.null;
             expect(data.items.length).to.be.within(0, 50);
             done();
 
-        }).catch(errFn);
+        }, errFn);
 
     });
 });

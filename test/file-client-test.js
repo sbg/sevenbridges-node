@@ -23,7 +23,7 @@ describe('User Client Test', function () {
 
         SBG = new SBGClient();
 
-        SBG.Billing.list().then(function(res) {
+        SBG.Billing.list().done(function(res) {
 
             expect(res.items.length).to.be.at.least(1);
 
@@ -33,24 +33,28 @@ describe('User Client Test', function () {
                 'name': 'My extra test project ' + Date.now(),
                 'description': 'A project for testing my apps in a very cool way',
                 'billing_group': billing_group
-            }).then(function (res) {
+            }).done(function (res) {
+
+                expect(res).to.not.be.undefined;
 
                 console.log('Successfully created project');
+
                 project = res;
+
                 done();
 
-            }).catch(errFn);
+            }, errFn);
 
-        }).catch(errFn);
+        }, errFn);
 
     });
 
     after(function(done) {
         // runs after all tests in this block
-        SBG.Projects.delete(project.id).then(function() {
+        SBG.Projects.delete(project.id).done(function() {
             console.log('Successfully deleted project');
             done();
-        }).catch(errFn);;
+        }, errFn);
     });
 
     it('Can list files in project.', function (done) {

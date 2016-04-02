@@ -24,48 +24,47 @@ describe('User Client Test', function () {
     it('Can get user information.', function (done) {
 
         SBG.User.info()
-            .then(function (data) {
+            .done(function (data) {
                 expect(data).to.not.be.undefined;
                 expect(data.username).to.be.string;
                 done();
-            })
-            .catch(util.errFn)
+            }, util.errFn)
 
     });
 
     it('Can get other user information.', function (done) {
+
         SBG.User.info()
-            .then(function (data) {
+            .done(function (data) {
                 expect(data).to.not.be.undefined;
                 expect(data.username).to.be.string;
-                return SBG.User.listResources(data.username);
-            })
-            .then(function (data) {
-                expect(data).to.not.be.undefined;
-                done();
-            })
-            .catch(util.errFn);
+
+                SBG.User.listResources(data.username)
+                    .done(function (data) {
+                        expect(data).to.not.be.undefined;
+                        done();
+                    });
+            });
 
     });
 
     it('Can\'t get other user information.', function (done) {
         // SBG.User.
         SBG.User.listResources('' + Date.now())
-            .then(function (data) {
+            .done(function (data) {
                 expect(data.status).to.not.equal(200);
                 done();
-            })
-            .catch(util.errFn)
+            }, util.errFn)
     });
 
     it('Can get user rate limits.', function (done) {
         SBG.User.getRateLimit()
-            .then(function (data) {
+            .done(function (data) {
                 expect(data).to.not.be.undefined;
                 expect(data.rate).to.not.be.undefined;
                 expect(data.rate.remaining).to.not.be.undefined;
                 done();
-            }).catch(util.errFn);
+            }, util.errFn);
 
     });
 

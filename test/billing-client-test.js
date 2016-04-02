@@ -23,13 +23,13 @@ describe('Billing Client Test', function () {
 
     it('Can list billing groups.', function (done) {
 
-        SBG.Billing.list().then(function (data) {
+        SBG.Billing.list().done(function (data) {
 
             expect(data).not.to.be.null;
             expect(data.items.length).to.be.within(0, 100);
             done();
 
-        }).catch(util.errFn);
+        }, util.errFn);
 
     });
 
