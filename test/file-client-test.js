@@ -45,7 +45,7 @@ describe('User Client Test', function () {
 
     });
 
-    after(function() {
+    after(function(done) {
         // runs after all tests in this block
         SBG.Projects.delete(project.id).then(function() {
             console.log('Successfully deleted project');

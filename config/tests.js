@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-    testTimeout: 15000
+    testTimeout: 6000
 }

@@ -15,6 +15,7 @@ export module Api {
         Request(options, function (err, res, body) {
 
             if (err) {
+                console.log('error occ', err);
                 deferred.reject(err);
                 return;
             }

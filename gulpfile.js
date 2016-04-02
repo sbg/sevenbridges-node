@@ -80,8 +80,8 @@ gulp.task('test', 'Runs the Jasmine test specs', ['build'], function () {
 
     return gulp.src([glob], {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it
-        .pipe(mocha({reporter: 'spec'}))
-        .on('error', util.log);
+        .pipe(mocha({reporter: 'spec', showStack: true}))
+        .on('error', function() {});
 
 });
 

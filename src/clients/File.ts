@@ -4,7 +4,7 @@ import {ApiConfig} from '../api/config';
 
 export class File extends Base implements FileInterfaces.FileClientInterface {
 
-    public url: string = ApiConfig.urls.files_url;
+    public url: string = ApiConfig.apiUrl + ApiConfig.urls.files_url;
 
     /**
      * List files in project

@@ -29,7 +29,7 @@ describe('Billing Client Test', function () {
             expect(data.items.length).to.be.within(0, 100);
             done();
 
-        }, util.errFn);
+        }).catch(util.errFn);
 
     });
 

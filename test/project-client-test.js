@@ -46,12 +46,12 @@ describe('Projects Client Test', function () {
 
     });
 
-    after(function() {
+    after(function(done) {
         // runs after all tests in this block
         SBG.Projects.delete(project.id).then(function() {
             console.log('Successfully deleted project');
             done();
-        }, errFn);
+        }).catch(errFn);
     });
 
     it('Can get project details', function(done) {
@@ -62,7 +62,7 @@ describe('Projects Client Test', function () {
             expect(data.id).to.be.equal(project.id);
             done();
 
-        }, errFn);
+        }).catch(errFn);
     });
 
     it('Can list projects', function (done) {
@@ -73,7 +73,7 @@ describe('Projects Client Test', function () {
             expect(data.items.length).to.be.within(0, 50);
             done();
 
-        }, errFn);
+        }).catch(errFn);
 
     });
 });
