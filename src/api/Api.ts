@@ -20,7 +20,7 @@ export module Api {
                 return;
             }
 
-            deferred.resolve();
+            deferred.resolve(body);
         });
 
         return deferred.promise;
