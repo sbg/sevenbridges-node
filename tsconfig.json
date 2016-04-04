@@ -31,6 +31,7 @@
     "src/interfaces/FileInterfaces.ts",
     "src/interfaces/ProjectInterfaces.ts",
     "src/interfaces/SBGInterfaces.ts",
-    "src/interfaces/UserInterfaces.ts"
+    "src/interfaces/UserInterfaces.ts",
+    "src/util/APIResponse.ts"
   ]
 }

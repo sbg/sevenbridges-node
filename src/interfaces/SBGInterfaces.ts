@@ -2,7 +2,7 @@
 /// <reference path="../../typings/node/node.d.ts" />
 
 import * as Q from 'q';
-import {ServerResponse} from "http";
+import {ServerResponse} from 'http';
 
 export namespace Interfaces {
 
