@@ -36,10 +36,8 @@ describe('Projects Client Test', function () {
                 'billing_group': billing_group
             }).done(function (res) {
                 expect(res).to.not.be.undefined;
-                console.log('Successfully created project');
                 project = res;
                 done();
-
             }, errFn);
 
         }, errFn);
@@ -47,9 +45,9 @@ describe('Projects Client Test', function () {
     });
 
     after(function(done) {
-        // runs after all tests in this block
-        SBG.Projects.delete(project.id).done(function() {
-            console.log('Successfully deleted project');
+        // After every test is finished delete temp project
+        SBG.Projects.delete(project.id).done(function(data) {
+            expect(data).to.not.be.undefined;
             done();
         }, errFn);
     });

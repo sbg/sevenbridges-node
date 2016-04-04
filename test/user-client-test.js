@@ -36,12 +36,14 @@ describe('User Client Test', function () {
 
         SBG.User.info()
             .done(function (data) {
+
                 expect(data).to.not.be.undefined;
                 expect(data.username).to.be.string;
 
                 SBG.User.listResources(data.username)
                     .done(function (data) {
                         expect(data).to.not.be.undefined;
+                        expect(data.status).to.be.undefined;
                         done();
                     });
             });
@@ -49,12 +51,12 @@ describe('User Client Test', function () {
     });
 
     it('Can\'t get other user information.', function (done) {
-        // SBG.User.
-        SBG.User.listResources('' + Date.now())
+        SBG.User.listResources('admin')
             .done(function (data) {
-                expect(data.status).to.not.equal(200);
+                expect(data.status).to.not.be.undefined;
+                expect(data.status).to.be.oneOf([401, 404]);
                 done();
-            }, util.errFn)
+            }, util.errFn);
     });
 
     it('Can get user rate limits.', function (done) {

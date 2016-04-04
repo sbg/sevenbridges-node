@@ -36,11 +36,7 @@ describe('User Client Test', function () {
             }).done(function (res) {
 
                 expect(res).to.not.be.undefined;
-
-                console.log('Successfully created project');
-
                 project = res;
-
                 done();
 
             }, errFn);
@@ -52,7 +48,6 @@ describe('User Client Test', function () {
     after(function(done) {
         // runs after all tests in this block
         SBG.Projects.delete(project.id).done(function() {
-            console.log('Successfully deleted project');
             done();
         }, errFn);
     });
