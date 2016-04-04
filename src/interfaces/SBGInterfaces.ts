@@ -1,12 +1,13 @@
 /// <reference path="../../typings/q/Q.d.ts" />
+/// <reference path="../../typings/node/node.d.ts" />
 
 import * as Q from 'q';
+import {ServerResponse} from "http";
 
 export namespace Interfaces {
 
-    export interface HTTPResponseObject {
-        err: any;
-        response: any;
+    export interface HTTPResponseObject extends ServerResponse {
+        body: any;
     }
 
     export interface QuertStringInterface {

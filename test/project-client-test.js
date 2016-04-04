@@ -20,11 +20,11 @@ describe('Projects Client Test', function () {
 
     this.timeout(config.testTimeout);
 
-    before(function(done) {
+    before(function (done) {
 
         SBG = new SBGClient();
 
-        SBG.Billing.list().done(function(res) {
+        SBG.Billing.list().done(function (res) {
 
             expect(res.items.length).to.be.at.least(1);
             expect(res.items[0].id).to.not.be.undefined;
@@ -44,34 +44,37 @@ describe('Projects Client Test', function () {
 
     });
 
-    after(function(done) {
+    after(function (done) {
         // After every test is finished delete temp project
-        SBG.Projects.delete(project.id).done(function(data) {
-            expect(data).to.not.be.undefined;
-            done();
-        }, errFn);
+        SBG.Projects.delete(project.id)
+            .done(function (data) {
+                expect(data).to.not.be.undefined;
+                done();
+            }, errFn);
     });
 
-    it('Can get project details', function(done) {
+    it('Can get project details', function (done) {
 
-        SBG.Projects.getDetails(project.id).done(function (data) {
+        SBG.Projects.getDetails(project.id)
+            .done(function (data) {
 
-            expect(data).not.to.be.null;
-            expect(data.id).to.be.equal(project.id);
-            done();
+                expect(data).not.to.be.null;
+                expect(data.id).to.be.equal(project.id);
+                done();
 
-        }, errFn);
+            }, errFn);
     });
 
     it('Can list projects', function (done) {
 
-        SBG.Projects.list().done(function (data) {
+        SBG.Projects.list()
+            .done(function (data) {
 
-            expect(data).not.to.be.null;
-            expect(data.items.length).to.be.within(0, 50);
-            done();
+                expect(data).not.to.be.null;
+                expect(data.items.length).to.be.within(0, 50);
+                done();
 
-        }, errFn);
+            }, errFn);
 
     });
 });

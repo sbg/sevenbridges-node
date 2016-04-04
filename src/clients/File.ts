@@ -53,6 +53,13 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
         });
     }
 
+    /**
+     * Update file details
+     *
+     * @param fileId
+     * @param fields
+     * @returns {Q.IPromise<any>}
+     */
     updateDetails(fileId: string, fields?: string) {
         return this._patch({
             url: this.url + '/' + fileId,
