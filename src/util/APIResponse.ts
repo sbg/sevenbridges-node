@@ -1,7 +1,7 @@
 /// <reference path="../../typings/request/request.d.ts" />
 import {Interfaces} from '../interfaces/SBGInterfaces';
 
-interface ResponseInterface {
+export interface ResponseInterface {
     getData(): any;
     getStatus(): number;
     getError(): Error;
