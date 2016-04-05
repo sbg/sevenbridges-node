@@ -24,9 +24,13 @@ describe('User Client Test', function () {
     it('Can get user information.', function (done) {
 
         SBG.User.info()
-            .done(function (data) {
+            .done(function (res) {
+                var data = res.getData();
                 expect(data).to.not.be.undefined;
                 expect(data.username).to.be.string;
+
+                expect(res.getStatus()).to.equal(200);
+
                 done();
             }, util.errFn)
 
@@ -35,15 +39,20 @@ describe('User Client Test', function () {
     it('Can get other user information.', function (done) {
 
         SBG.User.info()
-            .done(function (data) {
+            .done(function (res) {
+                var data = res.getData();
+
+                expect(res.getStatus()).to.equal(200);
 
                 expect(data).to.not.be.undefined;
                 expect(data.username).to.be.string;
 
                 SBG.User.listResources(data.username)
-                    .done(function (data) {
+                    .done(function (res) {
+                        var data = res.getData();
+
                         expect(data).to.not.be.undefined;
-                        expect(data.status).to.be.undefined;
+                        expect(res.getStatus()).to.equal(200);
                         done();
                     });
             });
@@ -52,19 +61,22 @@ describe('User Client Test', function () {
 
     it('Can\'t get other user information.', function (done) {
         SBG.User.listResources('admin')
-            .done(function (data) {
-                expect(data.status).to.not.be.undefined;
-                expect(data.status).to.be.oneOf([401, 404]);
+            .done(function (res) {
+                expect(res.getStatus()).to.be.oneOf([401, 404]);
                 done();
             }, util.errFn);
     });
 
     it('Can get user rate limits.', function (done) {
         SBG.User.getRateLimit()
-            .done(function (data) {
+            .done(function (res) {
+                var data = res.getData();
+
                 expect(data).to.not.be.undefined;
                 expect(data.rate).to.not.be.undefined;
                 expect(data.rate.remaining).to.not.be.undefined;
+                expect(res.getStatus()).to.equal(200);
+                
                 done();
             }, util.errFn);
 

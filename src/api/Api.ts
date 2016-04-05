@@ -5,10 +5,11 @@ import * as Q from 'q';
 
 import * as Request from 'request';
 import {Interfaces} from './../interfaces/SBGInterfaces';
+import {APIResponse, ResponseInterface} from '../util/APIResponse';
 
 export module Api {
 
-    export function request(options: Interfaces.RequestOptionsInterface): Q.IPromise<any> {
+    export function request(options: Interfaces.RequestOptionsInterface): Q.IPromise<ResponseInterface> {
 
         let deferred = Q.defer();
 
@@ -20,7 +21,7 @@ export module Api {
                 return;
             }
 
-            deferred.resolve(body);
+            deferred.resolve(new APIResponse(err, res, body));
         });
 
         return deferred.promise;

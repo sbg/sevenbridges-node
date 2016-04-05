@@ -1,29 +1,36 @@
 /// <reference path="../../typings/request/request.d.ts" />
+
 import {Interfaces} from '../interfaces/SBGInterfaces';
 
 export interface ResponseInterface {
     getData(): any;
     getStatus(): number;
     getError(): Error;
-    getHeaders(): any;
 }
 
 export class APIResponse implements ResponseInterface {
 
+    public data: any = null;
+
     protected _response: Interfaces.HTTPResponseObject;
     protected _err: Error = null;
 
-    constructor(err: Error, res: Interfaces.HTTPResponseObject) {
+    constructor(err: Error, res: Interfaces.HTTPResponseObject, body: any) {
         this._response = res;
 
         if (err) {
             this._err = err;
         }
 
+        if (body) {
+            this.data = body;
+
+        }
+
     }
 
     getData() {
-        return this._response.body;
+        return this.data;
     }
 
     getStatus() {
@@ -32,10 +39,6 @@ export class APIResponse implements ResponseInterface {
 
     getError() {
         return this._err;
-    }
-
-    getHeaders() {
-        return this._response.headersSent;
     }
 
 }

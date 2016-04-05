@@ -2,12 +2,13 @@
 /// <reference path="../../typings/node/node.d.ts" />
 
 import * as Q from 'q';
-import {ServerResponse} from 'http';
+import {IncomingMessage} from 'http';
+import {ResponseInterface} from '../util/APIResponse';
 
 export namespace Interfaces {
 
-    export interface HTTPResponseObject extends ServerResponse {
-        body: any;
+    export interface HTTPResponseObject extends IncomingMessage {
+
     }
 
     export interface QuertStringInterface {
@@ -46,12 +47,12 @@ export namespace Interfaces {
     }
 
     export interface BaseClientInterface {
-        _get(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
-        _post(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
-        _put(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
-        _patch(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
-        _delete(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
-        _request(options: RequestOptionsInterface, body: any): Q.IPromise<any>;
+        _get(options: RequestOptionsInterface, body: any): Q.IPromise<ResponseInterface>;
+        _post(options: RequestOptionsInterface, body: any): Q.IPromise<ResponseInterface>;
+        _put(options: RequestOptionsInterface, body: any): Q.IPromise<ResponseInterface>;
+        _patch(options: RequestOptionsInterface, body: any): Q.IPromise<ResponseInterface>;
+        _delete(options: RequestOptionsInterface, body: any): Q.IPromise<ResponseInterface>;
+        _request(options: RequestOptionsInterface, body: any): Q.IPromise<ResponseInterface>;
     }
 
 }

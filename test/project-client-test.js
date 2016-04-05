@@ -1,6 +1,8 @@
 /**
  * Created by filip on 3/17/16.
  */
+"use strict";
+
 var chai = require('chai');
 var expect = chai.expect
 var util = require('util');
@@ -24,7 +26,8 @@ describe('Projects Client Test', function () {
 
         SBG = new SBGClient();
 
-        SBG.Billing.list().done(function (res) {
+        SBG.Billing.list().done(function (dat) {
+            var res = dat.getData();
 
             expect(res.items.length).to.be.at.least(1);
             expect(res.items[0].id).to.not.be.undefined;
@@ -34,10 +37,15 @@ describe('Projects Client Test', function () {
                 'name': 'My extra test project ' + Date.now(),
                 'description': 'A project for testing my apps in a very cool way',
                 'billing_group': billing_group
-            }).done(function (res) {
+            }).done(function (data) {
+                
+                var res = data.getData();
+
                 expect(res).to.not.be.undefined;
                 project = res;
+
                 done();
+
             }, errFn);
 
         }, errFn);
@@ -48,7 +56,8 @@ describe('Projects Client Test', function () {
         // After every test is finished delete temp project
         SBG.Projects.delete(project.id)
             .done(function (data) {
-                expect(data).to.not.be.undefined;
+                expect(data.getData()).to.be.null;
+                expect(data.getStatus()).to.equal(204);
                 done();
             }, errFn);
     });
@@ -56,8 +65,8 @@ describe('Projects Client Test', function () {
     it('Can get project details', function (done) {
 
         SBG.Projects.getDetails(project.id)
-            .done(function (data) {
-
+            .done(function (d) {
+                var data = d.getData();
                 expect(data).not.to.be.null;
                 expect(data.id).to.be.equal(project.id);
                 done();
@@ -68,7 +77,8 @@ describe('Projects Client Test', function () {
     it('Can list projects', function (done) {
 
         SBG.Projects.list()
-            .done(function (data) {
+            .done(function (d) {
+                var data = d.getData();
 
                 expect(data).not.to.be.null;
                 expect(data.items.length).to.be.within(0, 50);

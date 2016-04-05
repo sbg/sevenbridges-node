@@ -12,7 +12,7 @@ var SBGClient = require('../lib/sbg');
 
 var errFn = util.errFn;
 
-describe('User Client Test', function () {
+describe('File Client Test', function () {
 
     var SBG, project,
         billing_group = '';
@@ -24,10 +24,11 @@ describe('User Client Test', function () {
         SBG = new SBGClient();
 
         SBG.Billing.list().done(function(res) {
+            var data = res.getData();
 
-            expect(res.items.length).to.be.at.least(1);
+            expect(data.items.length).to.be.at.least(1);
 
-            billing_group = res.items[0].id;
+            billing_group = data.items[0].id;
 
             SBG.Projects.create({
                 'name': 'My extra test project ' + Date.now(),
@@ -35,8 +36,8 @@ describe('User Client Test', function () {
                 'billing_group': billing_group
             }).done(function (res) {
 
-                expect(res).to.not.be.undefined;
-                project = res;
+                expect(res.getStatus()).to.equal(201);
+                project = res.getData();
                 done();
 
             }, errFn);
@@ -47,7 +48,8 @@ describe('User Client Test', function () {
 
     after(function(done) {
         // runs after all tests in this block
-        SBG.Projects.delete(project.id).done(function() {
+        SBG.Projects.delete(project.id).done(function(res) {
+            expect(res.getStatus()).to.equal(204);
             done();
         }, errFn);
     });
