@@ -31,7 +31,7 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      * @param id
      * @returns {*}
      */
-    getBillingGrup(id: string) {
+    getBillingGroup(id: string) {
         return this._get({
             url: this.groupsUrl + '/' + id
         });

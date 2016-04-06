@@ -1,11 +1,12 @@
 import {Interfaces} from './SBGInterfaces';
+import {ResponseInterface} from '../util/APIResponse';
 
 export namespace UserInterfaces {
 
     export interface UserClientInterface extends Interfaces.ClientInterface {
-        info: Function;
-        listResources: Function;
-        getRateLimit: Function;
+        info(): Q.IPromise<ResponseInterface>;
+        listResources(username: string): Q.IPromise<ResponseInterface>;
+        getRateLimit(): Q.IPromise<ResponseInterface>;
     }
 
 }
