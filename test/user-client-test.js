@@ -3,7 +3,6 @@
  */
 var chai = require('chai');
 var expect = chai.expect
-var util = require('util');
 
 var config = require('../config/tests');
 var util = require('../util/test-util');
@@ -76,7 +75,7 @@ describe('User Client Test', function () {
                 expect(data.rate).to.not.be.undefined;
                 expect(data.rate.remaining).to.not.be.undefined;
                 expect(res.getStatus()).to.equal(200);
-                
+
                 done();
             }, util.errFn);
 
