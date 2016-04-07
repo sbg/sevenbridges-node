@@ -7,7 +7,7 @@ import {ApiConfig} from '../api/config';
 export class Project extends Base implements ProjectInterfaces.ProjectClientInterface {
 
     public url: string = ApiConfig.apiUrl + ApiConfig.urls.projects_url;
-
+    
     constructor() {
         super();
     }
@@ -17,7 +17,7 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      *
      * @returns {Q.IPromise<any>}
      */
-    list() {
+    list(username: string) {
 
         let options = {
             method: 'GET',
@@ -224,6 +224,9 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     overwriteMemberPermissions(id: string, username: string, permissions: ProjectInterfaces.ProjectPermissionsInterface) {
+        // path param
+        // body
+        // query ?
         let options = {
             url: this.url + '/' + id + '/members/' + username + '/permissions'
         };

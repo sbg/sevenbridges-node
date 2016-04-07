@@ -11,7 +11,7 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      *
      * @returns {Q.IPromise<any>}
      */
-    list(projectId: string, fields?: string ) {
+    list(projectId: string, fields?: string) {
         return this._get({
             url: this.url,
             qs: {
@@ -117,7 +117,7 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    getDownloadUrl(fileId: string, fields?: string ) {
+    getDownloadUrl(fileId: string, fields?: string) {
         return this._get({
             url: this.url + '/' + fileId + '/download_info',
             qs: {
@@ -133,7 +133,7 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    getMetadata(fileId: string, fields?: string ) {
+    getMetadata(fileId: string, fields?: string) {
         return this._get({
             url: this.url + '/' + fileId + '/metadata',
             qs: {
@@ -150,7 +150,7 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    modifyMetadata(fileId: string, metadata: any, fields?: string ) {
+    modifyMetadata(fileId: string, metadata: any, fields?: string) {
         return this._patch({
             url: this.url + '/' + fileId + '/metadata',
             body: metadata,
@@ -168,7 +168,7 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    overwriteMetadata(fileId: string, metadata: any, fields?: string ) {
+    overwriteMetadata(fileId: string, metadata: any, fields?: string) {
         return this._put({
             url: this.url + '/' + fileId + '/metadata',
             body: metadata,

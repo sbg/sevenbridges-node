@@ -7,10 +7,10 @@ import * as _ from 'lodash';
 
 export class Base implements Interfaces.BaseClientInterface {
 
-    protected authToken : string;
+    protected authToken: string;
 
-    private config : Interfaces.ClientConfigInterface;
-    private Api : Interfaces.ApiInterface;
+    private config: Interfaces.ClientConfigInterface;
+    private Api: Interfaces.ApiInterface;
 
     constructor() {
         this.config = Config;
@@ -18,7 +18,7 @@ export class Base implements Interfaces.BaseClientInterface {
         this.Api = Api;
     }
 
-    _request(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>  {
+    _request(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any> {
 
         let headers: Interfaces.SBGRequestHeadersInterface = {
             'X-SBG-Auth-Token': this.authToken
@@ -42,34 +42,34 @@ export class Base implements Interfaces.BaseClientInterface {
         }
 
         if (options.qs.fields) {
-           //TODO: Validate query string fields to match SBG fields restrictions.
+            //TODO: Validate query string fields to match SBG fields restrictions.
         }
 
         return this.Api.request(options);
 
     }
-
+    
     _get(options: Interfaces.RequestOptionsInterface): Q.IPromise<any> {
         options.method = 'GET';
         return this._request(options);
     }
 
-    _post(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
+    _post(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any> {
         options.method = 'POST';
         return this._request(options, body);
     }
 
-    _patch(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
+    _patch(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any> {
         options.method = 'PATCH';
         return this._request(options, body);
     }
 
-    _put(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
+    _put(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any> {
         options.method = 'PUT';
         return this._request(options, body);
     }
 
-    _delete(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any>   {
+    _delete(options: Interfaces.RequestOptionsInterface, body?: any): Q.IPromise<any> {
         options.method = 'DELETE';
         return this._request(options, body);
     }

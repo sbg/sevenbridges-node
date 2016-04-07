@@ -18,11 +18,11 @@ describe('File Client Test', function () {
 
     this.timeout(config.testTimeout);
 
-    before(function(done) {
+    before(function (done) {
 
         SBG = new SBGClient();
 
-        SBG.Billing.list().done(function(res) {
+        SBG.Billing.list().done(function (res) {
             var data = res.getData();
 
             expect(data.items.length).to.be.at.least(1);
@@ -45,9 +45,9 @@ describe('File Client Test', function () {
 
     });
 
-    after(function(done) {
+    after(function (done) {
         // runs after all tests in this block
-        SBG.Projects.delete(project.id).done(function(res) {
+        SBG.Projects.delete(project.id).done(function (res) {
             expect(res.getStatus()).to.equal(204);
             done();
         }, errFn);

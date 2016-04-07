@@ -11,7 +11,7 @@ export namespace Interfaces {
 
     }
 
-    export interface QuertStringInterface {
+    export interface QueryStringInterface {
         fields?: string;
         projectId?: string;
     }
@@ -22,7 +22,7 @@ export namespace Interfaces {
         headers?: SBGRequestHeadersInterface;
         json?: boolean;
         body?: any;
-        qs?: QuertStringInterface;
+        qs?: QueryStringInterface;
     }
 
     export interface SBGRequestHeadersInterface {
@@ -35,7 +35,7 @@ export namespace Interfaces {
 
     export interface ClientConfigInterface {
         getConfig: () => any;
-        getToken : () => string;
+        getToken: () => string;
     }
 
     export interface SBGConfigInterface {

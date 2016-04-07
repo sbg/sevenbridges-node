@@ -7,11 +7,10 @@ export namespace AppsInterfaces {
         list(options: ListAppsInterface): Q.IPromise<ResponseInterface>;
     }
 
-    export interface ListAppsInterface extends Interfaces.QuertStringInterface {
+    export interface ListAppsInterface extends Interfaces.QueryStringInterface {
         project?: string;
         project_owner?: string;
         visibility?: string;
     }
-
 
 }

@@ -1,14 +1,17 @@
 import {Base} from './Base';
 import {BillingInterfaces} from '../interfaces/BillingInterfaces';
 import {ApiConfig} from '../api/config';
+import {Interfaces} from '../interfaces/SBGInterfaces';
+import {url} from '../decorators/Common';
 
 export class Billing extends Base implements BillingInterfaces.BillingClientInterface {
 
     // default url exported
-    public url: string = this.groupsUrl;
 
     public groupsUrl: string = ApiConfig.apiUrl + ApiConfig.urls.billing_url + '/groups';
     public invoicesUrl: string = ApiConfig.apiUrl + ApiConfig.urls.billing_url + '/invoices';
+
+    public url: string = this.groupsUrl;
 
     constructor() {
         super();
@@ -19,9 +22,10 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      *
      * @returns {*}
      */
-    list() {
+    list(options?: Interfaces.QueryStringInterface) {
         return this._get({
-            url: this.groupsUrl
+            url: this.url,
+            qs: options
         });
     }
 
@@ -31,9 +35,11 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      * @param id
      * @returns {*}
      */
-    getBillingGroup(id: string) {
+    @url('/{id}', ['id'])
+    getBillingGroup(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.groupsUrl + '/' + id
+            url: this.groupsUrl + uri,
+            qs: qs
         });
     }
 
@@ -47,9 +53,11 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      * @param id
      * @returns {*}
      */
-    getBillingGroupBreakdown(id: string) {
+
+    getBillingGroupBreakdown(id: string, options?: Interfaces.QueryStringInterface) {
         return this._get({
-            url: this.groupsUrl + '/' + id + '/breakdown'
+            url: this.groupsUrl + '/' + id + '/breakdown',
+            qs: options
         });
     }
 
@@ -58,9 +66,10 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      *
      * @returns {*}
      */
-    listInvoices() {
+    listInvoices(options?: Interfaces.QueryStringInterface) {
         return this._get({
-            url: this.invoicesUrl
+            url: this.invoicesUrl,
+            qs: options
         });
     }
 
@@ -70,9 +79,10 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      * @param id
      * @returns {*}
      */
-    getInvoice(id: string) {
+    getInvoice(id: string, options?: Interfaces.QueryStringInterface) {
         return this._get({
-            url: this.invoicesUrl + '/' + id
+            url: this.invoicesUrl + '/' + id,
+            qs: options
         });
     }
 

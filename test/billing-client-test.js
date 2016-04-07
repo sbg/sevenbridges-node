@@ -15,7 +15,7 @@ describe('Billing Client Test', function () {
 
     this.timeout(config.testTimeout);
 
-    before(function(done) {
+    before(function (done) {
         SBG = new SBGClient();
 
         SBG.Billing.list().done(function (dat) {
@@ -68,7 +68,9 @@ describe('Billing Client Test', function () {
     });
 
     it('Can get billing group details.', function (done) {
-        SBG.Billing.getBillingGroup(billing_group)
+        SBG.Billing.getBillingGroup({
+                id: billing_group
+            })
             .done(function (res) {
                 var data = res.getData();
 
@@ -105,7 +107,7 @@ describe('Billing Client Test', function () {
     it('Can list invoices.', function (done) {
 
         SBG.Billing.listInvoices()
-            .done( function (res) {
+            .done(function (res) {
                 var data = res.getData();
 
                 expect(data)
@@ -121,7 +123,7 @@ describe('Billing Client Test', function () {
         //TODO: There are no invoices to get details from.
 
         SBG.Billing.listInvoices()
-            .done( function (res) {
+            .done(function (res) {
                 var data = res.getData();
 
                 expect(data)

@@ -2,15 +2,15 @@
 
 /*
 
-create  file in ~/.sbg/configuration.json
+ create  file in ~/.sbg/configuration.json
 
---- with content
+ --- with content
 
-{
+ {
  "auth_token" : "xxxxxxx"
-}
+ }
 
-*/
+ */
 
 export interface ConfigInterface {
     auth_token: string;

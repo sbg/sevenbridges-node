@@ -4,7 +4,7 @@ import {ResponseInterface} from '../util/APIResponse';
 export namespace ProjectInterfaces {
 
     export interface ProjectClientInterface extends Interfaces.ClientInterface {
-        list(): Q.IPromise<ResponseInterface>;
+        list(username: string): Q.IPromise<ResponseInterface>;
         create(project: NewProjectInterface): Q.IPromise<ResponseInterface>;
         edit(id: string, project: UpdateProjectInterface): Q.IPromise<ResponseInterface>;
         listByUserName(username: string): Q.IPromise<ResponseInterface>;

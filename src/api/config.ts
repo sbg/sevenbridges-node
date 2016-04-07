@@ -25,7 +25,7 @@ export namespace ApiConfig {
     }
 
     export function updateApiEnvironment(env: string): void {
-        baseUrl = apiUrlTemplate.replace('<api-env>', env === 'aws' ? '' : env + '-' );
+        baseUrl = apiUrlTemplate.replace('<api-env>', env === 'aws' ? '' : env + '-');
         updateApiUrl();
     }
 

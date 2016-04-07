@@ -8,11 +8,11 @@ import {Apps} from './clients/Apps';
 
 class SBG {
 
-    Projects : ClientInterfaces.ProjectClientInterface;
-    Billing : ClientInterfaces.BillingClientInterface;
-    User : ClientInterfaces.UserClientInterface;
-    File : ClientInterfaces.FileClientInterface;
-    Apps : ClientInterfaces.AppsClientInterface;
+    Projects: ClientInterfaces.ProjectClientInterface;
+    Billing: ClientInterfaces.BillingClientInterface;
+    User: ClientInterfaces.UserClientInterface;
+    File: ClientInterfaces.FileClientInterface;
+    Apps: ClientInterfaces.AppsClientInterface;
 
     constructor() {
         this._instantiateClients();

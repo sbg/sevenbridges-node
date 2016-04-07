@@ -36,7 +36,7 @@ describe('Projects Client Test', function () {
                 'description': 'A project for testing my apps in a very cool way',
                 'billing_group': billing_group
             }).done(function (data) {
-                
+
                 var res = data.getData();
 
                 expect(res).to.not.be.undefined;
