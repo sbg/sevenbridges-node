@@ -36,7 +36,7 @@ export function url(urlTemplate?: string) {
         keys = getParams(urlTemplate);
     }
 
-    return function (target: any, key: string, descriptor: any) {
+    return function (target: any, method: string, descriptor: any) {
 
         return {
             value: function (...args: any[]) {
@@ -67,7 +67,7 @@ export function url(urlTemplate?: string) {
                             delete options[key];
                         } else {
                             if (!optional) {
-                                throw Error('Missing required PATH parameter: ' + key);
+                                throw Error('Missing required PATH parameter: ' + key + ' in method: ' + method);
                             }
                         }
                     }
@@ -93,9 +93,8 @@ export function url(urlTemplate?: string) {
                 }
 
                 let qs: any = options;
-                var result = descriptor.value.apply(this, [url, body, qs]);
-                
-                return result;
+
+                return descriptor.value.apply(this, [url, body, qs]);
             }
 
         };
