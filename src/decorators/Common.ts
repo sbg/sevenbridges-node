@@ -1,5 +1,15 @@
 import * as _ from 'lodash';
+import {Util} from '../util/Util';
 
+/**
+ * Parses url string to extract params
+ *
+ * For: "/{id}/revision/{revision}" will return ['id', 'revision']
+ *
+ *
+ * @param url
+ * @returns {Array<string>}
+ */
 function getParams(url: string): Array<string> {
 
     var keys: Array<string> = [];
@@ -37,13 +47,38 @@ export function url(urlTemplate?: string) {
 
                 if (urlTemplate && keys) {
 
-                    _.forEach(keys, function (key) {
+                    function replace(key: string, optional: boolean = false): void {
 
-                        if (options[key]) {
-                            url = url.replace('{' + key + '}', options[key]);
+                        if (options[key] || optional) {
+
+                            let temp: string = key;
+                            let value = options[key];
+
+                            if (optional) {
+                                temp = temp + '?';
+                            }
+
+                            if (optional && !value) {
+                                url = url.replace('/{' + temp + '}', '');
+                            } else {
+                                url = url.replace('{' + temp + '}', value);
+                            }
+
                             delete options[key];
                         } else {
-                            throw Error('Missing required PATH parameter: ' + key);
+                            if (!optional) {
+                                throw Error('Missing required PATH parameter: ' + key);
+                            }
+                        }
+                    }
+
+                    _.forEach(keys, function (key) {
+
+                        if (_.endsWith(key, '?')) {
+                            key = key.substring(0, key.length - 1);
+                            replace(key, true);
+                        } else {
+                            replace(key);
                         }
 
                     });
@@ -58,9 +93,8 @@ export function url(urlTemplate?: string) {
                 }
 
                 let qs: any = options;
-
                 var result = descriptor.value.apply(this, [url, body, qs]);
-
+                
                 return result;
             }
 
