@@ -4,9 +4,13 @@ import {ResponseInterface} from '../util/APIResponse';
 export namespace UserInterfaces {
 
     export interface UserClientInterface extends Interfaces.ClientInterface {
-        info(): Q.IPromise<ResponseInterface>;
-        listResources(username: string): Q.IPromise<ResponseInterface>;
-        getRateLimit(): Q.IPromise<ResponseInterface>;
+        info(options: Interfaces.QueryStringInterface): Q.IPromise<ResponseInterface>;
+        listResources(options: ListResoureceInterface): Q.IPromise<ResponseInterface>;
+        getRateLimit(options: Interfaces.QueryStringInterface): Q.IPromise<ResponseInterface>;
+    }
+
+    export interface ListResoureceInterface extends Interfaces.QueryStringInterface {
+        username: string;
     }
 
 }

@@ -1,9 +1,9 @@
 import {Base} from './Base';
 import {UserInterfaces} from '../interfaces/UserInterfaces';
 import {ApiConfig} from '../api/config';
+import {url} from '../decorators/Common';
 
 export class User extends Base implements UserInterfaces.UserClientInterface {
-
 
     public user_url: string = ApiConfig.apiUrl + ApiConfig.urls.user_url;
     public users_url: string = ApiConfig.apiUrl + ApiConfig.urls.users_url;
@@ -21,9 +21,11 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      *
      * @returns {*}
      */
-    info() {
+    @url('')
+    info(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.user_url
+            url: this.user_url,
+            qs: qs
         });
     }
 
@@ -35,9 +37,11 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      * @param username
      * @returns {*}
      */
-    listResources(username: string) {
+    @url('/{username}')
+    listResources(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.users_url + '/' + username
+            url: this.users_url + uri,
+            qs: qs
         });
     }
 
@@ -46,9 +50,11 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      *
      * @returns {Q.IPromise<any>}
      */
-    getRateLimit() {
+    @url('')
+    getRateLimit(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.rate_limit_url
+            url: this.rate_limit_url,
+            qs: qs
         });
     }
 

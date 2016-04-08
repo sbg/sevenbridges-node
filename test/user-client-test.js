@@ -46,7 +46,9 @@ describe('User Client Test', function () {
                 expect(data).to.not.be.undefined;
                 expect(data.username).to.be.string;
 
-                SBG.User.listResources(data.username)
+                SBG.User.listResources({
+                    username: data.username
+                })
                     .done(function (res) {
                         var data = res.getData();
 
@@ -59,7 +61,9 @@ describe('User Client Test', function () {
     });
 
     it('Can\'t get other user information.', function (done) {
-        SBG.User.listResources('admin')
+        SBG.User.listResources({
+            username: 'admin'
+        })
             .done(function (res) {
                 expect(res.getStatus()).to.be.oneOf([401, 404]);
                 done();
