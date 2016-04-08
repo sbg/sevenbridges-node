@@ -7,7 +7,7 @@ export class Apps extends Base implements AppsInterfaces.AppsClientInterface {
 
     public url: string = ApiConfig.apiUrl + ApiConfig.urls.apps_url;
 
-    @url('')
+    @url('/')
     list(uri: any, body?: any, qs?: any) {
 
         let opts = {

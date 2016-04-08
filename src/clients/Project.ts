@@ -43,7 +43,7 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @param project
      * @returns {Q.IPromise<any>}
      */
-    @url('')
+    @url('/')
     create(uri: any, body?: any, qs?: any) {
 
         let options = {

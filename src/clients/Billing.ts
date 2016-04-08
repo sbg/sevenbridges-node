@@ -21,7 +21,7 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      *
      * @returns {*}
      */
-    @url('')
+    @url('/')
     list(uri: any, body?: any, qs?: any) {
         return this._get({
             url: this.url + uri,
@@ -66,7 +66,7 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      *
      * @returns {*}
      */
-    @url('')
+    @url('/')
     listInvoices(uri: any, body?: any, qs?: any) {
         return this._get({
             url: this.invoicesUrl + uri,

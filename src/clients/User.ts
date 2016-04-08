@@ -21,7 +21,7 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      *
      * @returns {*}
      */
-    @url('')
+    @url('/')
     info(uri: any, body?: any, qs?: any) {
         return this._get({
             url: this.user_url,
@@ -50,7 +50,7 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      *
      * @returns {Q.IPromise<any>}
      */
-    @url('')
+    @url('/')
     getRateLimit(uri: any, body?: any, qs?: any) {
         return this._get({
             url: this.rate_limit_url,
