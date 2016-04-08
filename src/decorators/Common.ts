@@ -1,6 +1,30 @@
 import * as _ from 'lodash';
 
-export function url(urlTemplate?: string, keys?: Array<string> ) {
+function getParams(url: string): Array<string> {
+
+    var keys: Array<string> = [];
+    var arr: Array<string> = url.split('/');
+
+    _.forEach(arr, (s) => {
+        if (_.startsWith(s, '{') && _.endsWith(s, '}')) {
+            let str: string = s;
+
+            str = str.slice(1);
+            str = str.substring(0, str.length - 1);
+            keys.push(str);
+        }
+    });
+
+
+    return keys;
+}
+
+export function url(urlTemplate?: string) {
+    var keys: Array<string>;
+
+    if (urlTemplate) {
+        keys = getParams(urlTemplate);
+    }
 
     return function (target: any, key: string, descriptor: any) {
 

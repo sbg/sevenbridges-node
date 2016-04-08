@@ -68,6 +68,7 @@ describe('Billing Client Test', function () {
     });
 
     it('Can get billing group details.', function (done) {
+        
         SBG.Billing.getBillingGroup({
                 id: billing_group
             })
