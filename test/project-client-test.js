@@ -32,9 +32,11 @@ describe('Projects Client Test', function () {
             billing_group = res.items[0].id;
 
             SBG.Projects.create({
-                'name': 'My extra test project ' + Date.now(),
-                'description': 'A project for testing my apps in a very cool way',
-                'billing_group': billing_group
+                body: {
+                    'name': 'My extra test project ' + Date.now(),
+                    'description': 'A project for testing my apps in a very cool way',
+                    'billing_group': billing_group
+                }
             }).done(function (data) {
 
                 var res = data.getData();
@@ -52,7 +54,9 @@ describe('Projects Client Test', function () {
 
     after(function (done) {
         // After every test is finished delete temp project
-        SBG.Projects.delete(project.id)
+        SBG.Projects.delete({
+            id: project.id
+        })
             .done(function (data) {
                 expect(data.getData()).to.be.null;
                 expect(data.getStatus()).to.equal(204);
@@ -62,7 +66,9 @@ describe('Projects Client Test', function () {
 
     it('Can get project details', function (done) {
 
-        SBG.Projects.getDetails(project.id)
+        SBG.Projects.getDetails({
+            id: project.id
+        })
             .done(function (d) {
                 var data = d.getData();
                 expect(data).not.to.be.null;
@@ -79,7 +85,7 @@ describe('Projects Client Test', function () {
                 var data = d.getData();
 
                 expect(data).not.to.be.null;
-                expect(data.items.length).to.be.within(0, 50);
+                expect(data.items.length).to.be.greaterThan(0);
                 done();
 
             }, errFn);

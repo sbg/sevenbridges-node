@@ -23,7 +23,9 @@ describe('Apps Client Test', function () {
 
                 var d = r.getData();
 
-                SBG.Projects.list(d.username)
+                SBG.Projects.list({
+                        username: d.username
+                    })
                     .done(function (res) {
 
                         var data = res.getData();

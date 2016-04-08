@@ -4,18 +4,48 @@ import {ResponseInterface} from '../util/APIResponse';
 export namespace ProjectInterfaces {
 
     export interface ProjectClientInterface extends Interfaces.ClientInterface {
-        list(username: string): Q.IPromise<ResponseInterface>;
-        create(project: NewProjectInterface): Q.IPromise<ResponseInterface>;
-        edit(id: string, project: UpdateProjectInterface): Q.IPromise<ResponseInterface>;
-        listByUserName(username: string): Q.IPromise<ResponseInterface>;
-        delete(id: string): Q.IPromise<ResponseInterface>;
-        getDetails(id: string): Q.IPromise<ResponseInterface>;
-        listMembers(id: string): Q.IPromise<ResponseInterface>;
-        addMember(id: string, member: ProjectMemberInterface): Q.IPromise<ResponseInterface>;
-        removeMember(id: string, username: string): Q.IPromise<ResponseInterface>;
-        getMemberPermissions(id: string, username: string): Q.IPromise<ResponseInterface>;
-        editMemberPermissions(id: string, username: string, permissions: ProjectPermissionsInterface): Q.IPromise<ResponseInterface>;
-        overwriteMemberPermissions(id: string, username: string, permissions: ProjectPermissionsInterface): Q.IPromise<ResponseInterface>;
+        list(options: ListOptionsInterface): Q.IPromise<ResponseInterface>;
+        create(options: CreateProjectInterface): Q.IPromise<ResponseInterface>;
+        edit(options: EditProjectInterface): Q.IPromise<ResponseInterface>;
+        listByUserName(options: ListOptionsInterface): Q.IPromise<ResponseInterface>;
+        delete(options: IdBasedInterface): Q.IPromise<ResponseInterface>;
+        getDetails(options: IdBasedInterface): Q.IPromise<ResponseInterface>;
+        listMembers(options: IdBasedInterface): Q.IPromise<ResponseInterface>;
+        addMember(options: AddMemberInterface): Q.IPromise<ResponseInterface>;
+        removeMember(options: RemoveMemberInterface): Q.IPromise<ResponseInterface>;
+        getMemberPermissions(options: RemoveMemberInterface): Q.IPromise<ResponseInterface>;
+        editMemberPermissions(options: EditPermissionsInterface): Q.IPromise<ResponseInterface>;
+        overwriteMemberPermissions(options: EditPermissionsInterface): Q.IPromise<ResponseInterface>;
+    }
+
+    export interface EditPermissionsInterface extends IdBasedInterface {
+        username: string;
+        permissions: ProjectPermissionsInterface;
+    }
+
+    export interface IdBasedInterface extends Interfaces.QueryStringInterface {
+        id: string;
+    }
+
+    export interface RemoveMemberInterface extends IdBasedInterface {
+        username: string;
+    }
+
+    export interface AddMemberInterface extends IdBasedInterface {
+        member: ProjectMemberInterface;
+    }
+
+    export interface EditProjectInterface extends Interfaces.QueryStringInterface {
+        id: string;
+        body: UpdateProjectInterface;
+    }
+
+    export interface CreateProjectInterface extends Interfaces.QueryStringInterface {
+        body: NewProjectInterface;
+    }
+
+    export interface ListOptionsInterface extends Interfaces.QueryStringInterface {
+        username: string;
     }
 
     export interface ProjectPermissionsInterface {

@@ -30,9 +30,11 @@ describe('File Client Test', function () {
             billing_group = data.items[0].id;
 
             SBG.Projects.create({
-                'name': 'My extra test project ' + Date.now(),
-                'description': 'A project for testing my apps in a very cool way',
-                'billing_group': billing_group
+                body: {
+                    'name': 'My extra test project ' + Date.now(),
+                    'description': 'A project for testing my apps in a very cool way',
+                    'billing_group': billing_group
+                }
             }).done(function (res) {
 
                 expect(res.getStatus()).to.equal(201);
@@ -47,7 +49,9 @@ describe('File Client Test', function () {
 
     after(function (done) {
         // runs after all tests in this block
-        SBG.Projects.delete(project.id).done(function (res) {
+        SBG.Projects.delete({
+            id: project.id
+        }).done(function (res) {
             expect(res.getStatus()).to.equal(204);
             done();
         }, errFn);
