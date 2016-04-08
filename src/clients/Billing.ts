@@ -1,7 +1,6 @@
 import {Base} from './Base';
 import {BillingInterfaces} from '../interfaces/BillingInterfaces';
 import {ApiConfig} from '../api/config';
-import {Interfaces} from '../interfaces/SBGInterfaces';
 import {url} from '../decorators/Common';
 
 export class Billing extends Base implements BillingInterfaces.BillingClientInterface {
@@ -22,10 +21,11 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      *
      * @returns {*}
      */
-    list(options?: Interfaces.QueryStringInterface) {
+    @url('')
+    list(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.url,
-            qs: options
+            url: this.url + uri,
+            qs: qs
         });
     }
 
@@ -53,11 +53,11 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      * @param id
      * @returns {*}
      */
-
-    getBillingGroupBreakdown(id: string, options?: Interfaces.QueryStringInterface) {
+    @url('/{id}/breakdown')
+    getBillingGroupBreakdown(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.groupsUrl + '/' + id + '/breakdown',
-            qs: options
+            url: this.groupsUrl + uri,
+            qs: qs
         });
     }
 
@@ -66,10 +66,11 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      *
      * @returns {*}
      */
-    listInvoices(options?: Interfaces.QueryStringInterface) {
+    @url('')
+    listInvoices(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.invoicesUrl,
-            qs: options
+            url: this.invoicesUrl + uri,
+            qs: qs
         });
     }
 
@@ -79,10 +80,11 @@ export class Billing extends Base implements BillingInterfaces.BillingClientInte
      * @param id
      * @returns {*}
      */
-    getInvoice(id: string, options?: Interfaces.QueryStringInterface) {
+    @url('/{id}')
+    getInvoice(uri: any, body?: any, qs?: any) {
         return this._get({
-            url: this.invoicesUrl + '/' + id,
-            qs: options
+            url: this.invoicesUrl + uri,
+            qs: qs
         });
     }
 

@@ -108,17 +108,4 @@ describe('Apps Client Test', function () {
 
     });
 
-    it('Can annotate.', function (done) {
-        SBG.Apps.test({
-            id: '23',
-            path: 'test',
-            body: {
-                // json
-                inputs: []
-            },
-            fields: 'id,json'
-        });
-        done();
-    })
-
 });
