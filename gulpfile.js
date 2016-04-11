@@ -33,6 +33,7 @@ gulp.task('clean', 'Cleans the generated js files from lib directory', function 
     ]);
 });
 
+
 gulp.task('tslint', 'Lints all TypeScript source files', function () {
     return gulp.src(tsFilesGlob)
         .pipe(tslint())

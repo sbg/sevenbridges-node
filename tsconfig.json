@@ -16,9 +16,6 @@
     "src/**/*.ts"
   ],
   "files": [
-    "typings/tsd.d.ts",
-    "src/config.ts",
-    "src/sbg.ts",
     "src/api/Api.ts",
     "src/api/config.ts",
     "src/clients/Apps.ts",
@@ -29,6 +26,7 @@
     "src/clients/Project.ts",
     "src/clients/Task.ts",
     "src/clients/User.ts",
+    "src/config.ts",
     "src/decorators/Common.ts",
     "src/interfaces/AppsInterfaces.ts",
     "src/interfaces/BillingInterfaces.ts",
@@ -37,8 +35,10 @@
     "src/interfaces/ProjectInterfaces.ts",
     "src/interfaces/SBGInterfaces.ts",
     "src/interfaces/UserInterfaces.ts",
+    "src/sbg.ts",
     "src/util/Request.ts",
     "src/util/Response.ts",
-    "src/util/Util.ts"
+    "src/util/Util.ts",
+    "typings/tsd.d.ts"
   ]
 }
