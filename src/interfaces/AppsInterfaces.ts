@@ -22,12 +22,12 @@ export namespace AppsInterfaces {
     }
 
     export interface GetDetailsInterface extends Interfaces.RequestHandlerInterface {
-        app_id: string;
+        id: string;
         revision?: string|number;
     }
 
     export interface CopyAppInterface extends Interfaces.RequestHandlerInterface {
-        app_id: string;
+        id: string;
         revision?: number|string;
         body: CopyAppBodyInterface;
     }

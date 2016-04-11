@@ -29,7 +29,6 @@
     "src/clients/Project.ts",
     "src/clients/Task.ts",
     "src/clients/User.ts",
-    "src/decorators/Common.ts",
     "src/interfaces/AppsInterfaces.ts",
     "src/interfaces/BillingInterfaces.ts",
     "src/interfaces/ClientInterfaces.ts",
@@ -37,6 +36,7 @@
     "src/interfaces/ProjectInterfaces.ts",
     "src/interfaces/SBGInterfaces.ts",
     "src/interfaces/UserInterfaces.ts",
+    "src/decorators/Common.ts",
     "src/util/Request.ts",
     "src/util/Response.ts",
     "src/util/Util.ts"

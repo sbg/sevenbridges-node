@@ -22,14 +22,14 @@ export class Apps extends Base implements AppsInterfaces.AppsClientInterface {
     /**
      * Get app details
      *
-     * app_id = {project_owner}/{project}/{app_short_name}/{revision_number}
+     * id = {project_owner}/{project}/{app_short_name}/{revision_number}
      *
      * @param uri
      * @param body
      * @param qs
      * @returns {Q.IPromise<any>}
      */
-    @url('/{app_id}/{revision?}')
+    @url('/{id}/{revision?}')
     getDetails(options: AppsInterfaces.GetDetailsInterface) {
         return this._get({
             url: this.url + options.url,
@@ -40,14 +40,14 @@ export class Apps extends Base implements AppsInterfaces.AppsClientInterface {
     /**
      * Get app details
      *
-     * app_id = {project_owner}/{project}/{app_short_name}/{revision_number}
+     * id = {project_owner}/{project}/{app_short_name}/{revision_number}
      *
      * @param uri
      * @param body
      * @param qs
      * @returns {Q.IPromise<any>}
      */
-    @url('/{app_id}/{revision?}/raw')
+    @url('/{id}/{revision?}/raw')
     getRaw(options: AppsInterfaces.GetDetailsInterface) {
         return this._get({
             url: this.url + options.url,
@@ -58,14 +58,14 @@ export class Apps extends Base implements AppsInterfaces.AppsClientInterface {
     /**
      * Copy app
      *
-     * app_id = {project_owner}/{project}/{app_short_name}/{revision_number}
+     * id = {project_owner}/{project}/{app_short_name}/{revision_number}
      *
      * @param uri
      * @param body
      * @param qs
      * @returns {Q.IPromise<any>}
      */
-    @url('/{app_id}/{revision?}/actions/copy')
+    @url('/{id}/{revision?}/actions/copy')
     copyApp(options: AppsInterfaces.CopyAppInterface) {
         return this._post({
             url: this.url + options.url,
@@ -74,7 +74,7 @@ export class Apps extends Base implements AppsInterfaces.AppsClientInterface {
         });
     }
 
-    @url('/{app_id}')
+    @url('/{id}')
     createRaw(options: AppsInterfaces.CreateRawInterface) {
         return this._post({
             url: this.url + options.url,
