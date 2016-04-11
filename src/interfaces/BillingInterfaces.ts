@@ -1,5 +1,5 @@
 import {Interfaces} from './SBGInterfaces';
-import {ResponseInterface} from '../util/APIResponse';
+import {ResponseInterface} from '../util/Response';
 
 export namespace BillingInterfaces {
 
@@ -11,7 +11,7 @@ export namespace BillingInterfaces {
         getInvoice(options: GetBillingGroupInterface): Q.IPromise<ResponseInterface>;
     }
 
-    export interface GetBillingGroupInterface extends Interfaces.QueryStringInterface {
+    export interface GetBillingGroupInterface extends Interfaces.RequestHandlerInterface {
         id: string;
     }
 

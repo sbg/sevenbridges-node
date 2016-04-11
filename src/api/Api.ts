@@ -5,7 +5,7 @@ import * as Q from 'q';
 
 import * as Request from 'request';
 import {Interfaces} from './../interfaces/SBGInterfaces';
-import {APIResponse, ResponseInterface} from '../util/APIResponse';
+import {APIResponse, ResponseInterface} from '../util/Response';
 
 export module Api {
 

@@ -1,6 +1,8 @@
 import {Base} from './Base';
 import {FileInterfaces} from '../interfaces/FileInterfaces';
 import {ApiConfig} from '../api/config';
+import {Interfaces} from '../interfaces/SBGInterfaces';
+import {url} from '../decorators/Common';
 
 export class File extends Base implements FileInterfaces.FileClientInterface {
 
@@ -11,13 +13,11 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      *
      * @returns {Q.IPromise<any>}
      */
-    list(projectId: string, fields?: string) {
+    @url('/')
+    list(options: Interfaces.RequestHandlerInterface) {
         return this._get({
             url: this.url,
-            qs: {
-                projectId: projectId,
-                fields: fields
-            }
+            qs: options.qs
         });
     }
 
@@ -28,12 +28,11 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    delete(fileId: string, fields?: string) {
+    @url('/{id}')
+    delete(options: FileInterfaces.IdBasedInterface) {
         return this._delete({
-            url: this.url + '/' + fileId,
-            qs: {
-                fields: fields
-            }
+            url: this.url + options.url,
+            qs: options.qs
         });
     }
 
@@ -44,12 +43,11 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    getDetails(fileId: string, fields?: string) {
+    @url('/{id}')
+    getDetails(options: FileInterfaces.IdBasedInterface) {
         return this._get({
-            url: this.url + '/' + fileId,
-            qs: {
-                fields: fields
-            }
+            url: this.url + options.url,
+            qs: options.qs
         });
     }
 
@@ -60,12 +58,11 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    updateDetails(fileId: string, fields?: string) {
+    @url('/{id}')
+    updateDetails(options: FileInterfaces.IdBasedInterface) {
         return this._patch({
-            url: this.url + '/' + fileId,
-            qs: {
-                fields: fields
-            }
+            url: this.url + options.url,
+            qs: options.qs
         });
     }
 
@@ -97,17 +94,12 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    copy(fileId: string, projectId: string, newName: string, fields?: string) {
+    @url('/{id}/actions/copy')
+    copy(options: FileInterfaces.CopyFileInterface) {
         return this._post({
-            url: this.url + '/' + fileId + '/actions/copy',
-            body: {
-                project: projectId,
-                name: newName
-            },
-            qs: {
-                fields: fields
-            }
-        });
+            url: this.url + options.url,
+            qs: options.qs
+        }, options.body);
     }
 
     /**
@@ -117,12 +109,11 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    getDownloadUrl(fileId: string, fields?: string) {
+    @url('/{id}/download_info')
+    getDownloadUrl(options: FileInterfaces.IdBasedInterface) {
         return this._get({
-            url: this.url + '/' + fileId + '/download_info',
-            qs: {
-                fields: fields
-            }
+            url: this.url + options.url,
+            qs: options.qs
         });
     }
 
@@ -133,12 +124,11 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    getMetadata(fileId: string, fields?: string) {
+    @url('/{id}/metadata')
+    getMetadata(options: FileInterfaces.IdBasedInterface) {
         return this._get({
-            url: this.url + '/' + fileId + '/metadata',
-            qs: {
-                fields: fields
-            }
+            url: this.url + options.url,
+            qs: options.qs
         });
     }
 
@@ -150,14 +140,12 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    modifyMetadata(fileId: string, metadata: any, fields?: string) {
+    @url('/{id}/metadata')
+    modifyMetadata(options: FileInterfaces.FileMetadataInterface) {
         return this._patch({
-            url: this.url + '/' + fileId + '/metadata',
-            body: metadata,
-            qs: {
-                fields: fields
-            }
-        });
+            url: this.url + options.url,
+            qs: options.qs
+        }, options.body);
     }
 
     /**
@@ -168,14 +156,12 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
      * @param fields
      * @returns {Q.IPromise<any>}
      */
-    overwriteMetadata(fileId: string, metadata: any, fields?: string) {
+    @url('/{id}/metadata')
+    overwriteMetadata(options: FileInterfaces.FileMetadataInterface) {
         return this._put({
-            url: this.url + '/' + fileId + '/metadata',
-            body: metadata,
-            qs: {
-                fields: fields
-            }
-        });
+            url: this.url + options.url,
+            qs: options.qs
+        }, options.body);
     }
 
 }

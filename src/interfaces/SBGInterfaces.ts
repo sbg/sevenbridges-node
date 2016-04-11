@@ -3,7 +3,7 @@
 
 import * as Q from 'q';
 import {IncomingMessage} from 'http';
-import {ResponseInterface} from '../util/APIResponse';
+import {ResponseInterface} from '../util/Response';
 
 export namespace Interfaces {
 
@@ -14,6 +14,12 @@ export namespace Interfaces {
     export interface QueryStringInterface {
         fields?: string;
         projectId?: string;
+    }
+
+    export interface RequestHandlerInterface {
+        body?: any;
+        qs?: QueryStringInterface;
+        url: string;
     }
 
     export interface RequestOptionsInterface {
@@ -43,7 +49,7 @@ export namespace Interfaces {
     }
 
     export interface ClientInterface {
-        url: string;
+        // url: string;
     }
 
     export interface BaseClientInterface {

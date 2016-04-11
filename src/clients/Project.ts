@@ -20,11 +20,10 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{username?}')
-    list(uri: any, body?: any, qs?: any) {
-
+    list(options: ProjectInterfaces.ListOptionsInterface) {
         return this._get({
-            url: this.url + uri,
-            qs: qs
+            url: this.url + options.url,
+            qs: options.qs
         });
     }
 
@@ -44,14 +43,14 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/')
-    create(uri: any, body?: any, qs?: any) {
+    create(options: ProjectInterfaces.CreateProjectInterface) {
 
-        let options = {
-            url: this.url + uri,
-            qs: qs
+        let opts = {
+            url: this.url + options.url,
+            qs: options.qs
         };
 
-        return this._post(options, body);
+        return this._post(opts, options.body);
     }
 
     /**
@@ -70,14 +69,14 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}')
-    edit(uri: any, body?: any, qs?: any) {
+    edit(options: ProjectInterfaces.EditProjectInterface) {
 
-        let options = {
-            url: this.url + uri,
-            qs: qs
+        let opts = {
+            url: this.url + options.url,
+            qs: options.qs
         };
 
-        return this._patch(options, body);
+        return this._patch(opts, options.body);
     }
 
     /**
@@ -87,14 +86,12 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{username}')
-    listByUserName(uri: any, body?: any, qs?: any) {
+    listByUserName(options: ProjectInterfaces.ListOptionsInterface) {
 
-        let options = {
-            url: this.url + uri,
-            qs: qs
-    };
-
-        return this._get(options);
+        return this._get({
+            url: this.url + options.url,
+            qs: options.qs
+        });
     }
 
     /**
@@ -104,14 +101,12 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}')
-    delete(uri: any, body?: any, qs?: any) {
+    delete(options: ProjectInterfaces.IdBasedInterface) {
 
-        let options = {
-            url: this.url + uri,
-            qs: qs
-        };
-
-        return this._delete(options);
+        return this._delete({
+            url: this.url + options.url,
+            qs: options.qs
+        });
     }
 
     /**
@@ -121,13 +116,12 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}')
-    getDetails(uri: any, body?: any, qs?: any) {
+    getDetails(options: ProjectInterfaces.IdBasedInterface) {
 
-        let options = {
-            url: this.url + uri
-        };
-
-        return this._get(options);
+        return this._get({
+            url: this.url + options.url,
+            qs: options.qs
+        });
     }
 
     /**
@@ -137,14 +131,12 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}/members')
-    listMembers(uri: any, body?: any, qs?: any) {
+    listMembers(options: ProjectInterfaces.IdBasedInterface) {
 
-        let options = {
-            url: this.url + uri,
-            qs: qs
-        };
-
-        return this._get(options);
+        return this._get({
+            url: this.url + options.url,
+            qs: options.qs
+        });
     }
 
     /**
@@ -165,13 +157,13 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}/members')
-    addMember(uri: any, body?: any, qs?: any) {
-        let options = {
-            url: this.url + uri,
-            qs: qs
+    addMember(options: ProjectInterfaces.AddMemberInterface) {
+        let opts = {
+            url: this.url + options.url,
+            qs: options.qs
         };
 
-        return this._post(options, body);
+        return this._post(opts, options.body);
     }
 
     /**
@@ -182,24 +174,21 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}/members/{username}')
-    removeMember(uri: any, body?: any, qs?: any) {
-        let options = {
-            url: this.url + uri,
-            qs: qs
-        };
+    removeMember(options: ProjectInterfaces.RemoveMemberInterface) {
 
-        return this._delete(options);
+        return this._delete({
+            url: this.url + options.url,
+            qs: options.qs
+        });
     }
 
     @url('/{id}/members/{username}')
-    getMemberPermissions(uri: any, body?: any, qs?: any) {
+    getMemberPermissions(options: ProjectInterfaces.RemoveMemberInterface) {
 
-        let options = {
-            url: this.url + uri,
-            qs: qs
-        };
-
-        return this._get(options);
+        return this._get({
+            url: this.url + options.url,
+            qs: options.qs
+        });
     }
 
     /**
@@ -220,13 +209,14 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}/members/{username}/permissions')
-    editMemberPermissions(uri: any, body?: any, qs?: any) {
-        let options = {
-            url: this.url + uri,
-            qs: qs
+    editMemberPermissions(options: ProjectInterfaces.EditPermissionsInterface) {
+
+        let opts = {
+            url: this.url + options.url,
+            qs: options.qs
         };
 
-        return this._patch(options, body);
+        return this._patch(opts, options.body);
     }
 
     /**
@@ -247,15 +237,15 @@ export class Project extends Base implements ProjectInterfaces.ProjectClientInte
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}/members/{username}/permissions')
-    overwriteMemberPermissions(uri: any, body?: any, qs?: any) {
-        let options = {
-            url: this.url + uri,
-            qs: qs
+    overwriteMemberPermissions(options: ProjectInterfaces.EditPermissionsInterface) {
+
+        let opts = {
+            url: this.url + options.url,
+            qs: options.qs
         };
 
-        return this._put(options, body);
+        return this._put(opts, options.body);
     }
-
 
 }
 

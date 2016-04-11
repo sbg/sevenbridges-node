@@ -1,5 +1,5 @@
 import {Interfaces} from './SBGInterfaces';
-import {ResponseInterface} from '../util/APIResponse';
+import {ResponseInterface} from '../util/Response';
 
 export namespace ProjectInterfaces {
 
@@ -23,7 +23,7 @@ export namespace ProjectInterfaces {
         permissions: ProjectPermissionsInterface;
     }
 
-    export interface IdBasedInterface extends Interfaces.QueryStringInterface {
+    export interface IdBasedInterface extends Interfaces.RequestHandlerInterface {
         id: string;
     }
 
@@ -35,16 +35,16 @@ export namespace ProjectInterfaces {
         member: ProjectMemberInterface;
     }
 
-    export interface EditProjectInterface extends Interfaces.QueryStringInterface {
+    export interface EditProjectInterface extends Interfaces.RequestHandlerInterface {
         id: string;
         body: UpdateProjectInterface;
     }
 
-    export interface CreateProjectInterface extends Interfaces.QueryStringInterface {
+    export interface CreateProjectInterface extends Interfaces.RequestHandlerInterface {
         body: NewProjectInterface;
     }
 
-    export interface ListOptionsInterface extends Interfaces.QueryStringInterface {
+    export interface ListOptionsInterface extends Interfaces.RequestHandlerInterface {
         username: string;
     }
 

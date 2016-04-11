@@ -24,7 +24,6 @@ export class APIResponse implements ResponseInterface {
 
         if (body) {
             this.data = body;
-
         }
 
     }

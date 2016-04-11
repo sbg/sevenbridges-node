@@ -2,6 +2,7 @@ import {Base} from './Base';
 import {UserInterfaces} from '../interfaces/UserInterfaces';
 import {ApiConfig} from '../api/config';
 import {url} from '../decorators/Common';
+import {Interfaces} from '../interfaces/SBGInterfaces';
 
 export class User extends Base implements UserInterfaces.UserClientInterface {
 
@@ -22,10 +23,10 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      * @returns {*}
      */
     @url('/')
-    info(uri: any, body?: any, qs?: any) {
+    info(options: Interfaces.RequestHandlerInterface) {
         return this._get({
             url: this.user_url,
-            qs: qs
+            qs: options.qs
         });
     }
 
@@ -38,10 +39,10 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      * @returns {*}
      */
     @url('/{username}')
-    listResources(uri: any, body?: any, qs?: any) {
+    listResources(options: UserInterfaces.ListResoureceInterface) {
         return this._get({
-            url: this.users_url + uri,
-            qs: qs
+            url: this.users_url + options.url,
+            qs: options.qs
         });
     }
 
@@ -51,10 +52,10 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      * @returns {Q.IPromise<any>}
      */
     @url('/')
-    getRateLimit(uri: any, body?: any, qs?: any) {
+    getRateLimit(options: Interfaces.RequestHandlerInterface) {
         return this._get({
             url: this.rate_limit_url,
-            qs: qs
+            qs: options.qs
         });
     }
 

@@ -94,7 +94,11 @@ export function url(urlTemplate?: string) {
 
                 let qs: any = options;
 
-                return descriptor.value.apply(this, [url, body, qs]);
+                return descriptor.value.apply(this, [{
+                    url: url,
+                    qs: qs,
+                    body: body
+                }]);
             }
 
         };
