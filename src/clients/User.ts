@@ -35,7 +35,8 @@ export class User extends Base implements UserInterfaces.UserClientInterface {
      * Note that currently you can view only your own user information,
      * and so this call is equivalent to the `info()` call .
      *
-     * @param username
+     * @param options
+     * @param options.username {string}
      * @returns {*}
      */
     @url('/{username}')
