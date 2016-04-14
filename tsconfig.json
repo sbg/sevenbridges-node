@@ -34,6 +34,7 @@
     "src/interfaces/FileInterfaces.ts",
     "src/interfaces/ProjectInterfaces.ts",
     "src/interfaces/SBGInterfaces.ts",
+    "src/interfaces/TaskInterfaces.ts",
     "src/interfaces/UserInterfaces.ts",
     "src/sbg.ts",
     "src/util/Request.ts",
