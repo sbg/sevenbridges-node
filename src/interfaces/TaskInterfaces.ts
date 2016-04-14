@@ -32,6 +32,7 @@ export namespace TaskInterfaces {
     export interface ListTasksInterface extends Interfaces.RequestHandlerInterface {
         parent: string;
         status: string;
+        project: string;
     }
 
     export interface RunTaskInterface extends Interfaces.RequestHandlerInterface {
