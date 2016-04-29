@@ -23,7 +23,7 @@
   ],
   "files": [
     "lib",
-    "*.ts"
+    "**/*.ts"
   ],
   "typescript": {
     "definition": "index.d.ts"
