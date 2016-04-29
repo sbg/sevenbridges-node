@@ -4,14 +4,14 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "outDir": "./lib",
+    "outDir": "lib/",
     "preserveConstEnums": true,
     "removeComments": true,
     "target": "es5",
     "experimentalDecorators": true
   },
   "filesGlob": [
-    "typings/tsd.d.ts",
+    "typings/main.d.ts",
     "!./node_modules/**/*.ts",
     "src/**/*.ts"
   ],
@@ -39,6 +39,6 @@
     "src/util/Request.ts",
     "src/util/Response.ts",
     "src/util/Util.ts",
-    "typings/tsd.d.ts"
+    "typings/main.d.ts"
   ]
 }

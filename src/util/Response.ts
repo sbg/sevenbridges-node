@@ -1,4 +1,4 @@
-/// <reference path="../../typings/request/request.d.ts" />
+/// <reference path="../../typings/main/ambient/request/index.d.ts" />
 
 import {Interfaces} from '../interfaces/SBGInterfaces';
 

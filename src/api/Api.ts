@@ -1,5 +1,5 @@
-/// <reference path="../../typings/request/request.d.ts" />
-/// <reference path="../../typings/q/Q.d.ts" />
+/// <reference path="../../typings/main/ambient/request/index.d.ts" />
+/// <reference path="../../typings/main/ambient/Q/index.d.ts" />
 
 import * as Q from 'q';
 

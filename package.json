@@ -12,6 +12,10 @@
     {
       "name": "Dragan Bajcic",
       "email": "dragan@bajcic.com"
+    },
+    {
+      "name": "Filip Jelic",
+      "email": "jelic.filip@gmail.com"
     }
   ],
   "keywords": [
@@ -20,8 +24,11 @@
   "files": [
     "lib"
   ],
+  "typescript": {
+    "definition": "index.d.ts"
+  },
   "scripts": {
-    "postinstall": "tsd install",
+    "postinstall": "typings install",
     "test": "gulp test",
     "build": "gulp build"
   },

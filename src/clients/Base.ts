@@ -1,4 +1,4 @@
-/// <reference path="../../typings/lodash/lodash.d.ts" />
+/// <reference path="../../typings/main/ambient/lodash/index.d.ts" />
 
 import {Api} from '../api/Api';
 import {Config} from '../config';
@@ -48,7 +48,7 @@ export class Base implements Interfaces.BaseClientInterface {
         return this.Api.request(options);
 
     }
-    
+
     _get(options: Interfaces.RequestOptionsInterface): Q.IPromise<any> {
         options.method = 'GET';
         return this._request(options);

@@ -1,5 +1,5 @@
-/// <reference path="../../typings/q/Q.d.ts" />
-/// <reference path="../../typings/node/node.d.ts" />
+/// <reference path="../../typings/main/ambient/Q/index.d.ts" />
+/// <reference path="../../typings/main/ambient/node/index.d.ts" />
 
 import * as Q from 'q';
 import {IncomingMessage} from 'http';

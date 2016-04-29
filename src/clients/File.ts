@@ -105,8 +105,8 @@ export class File extends Base implements FileInterfaces.FileClientInterface {
     /**
      * Get file download url
      *
-     * @param fileId
-     * @param fields
+     * @param options
+     * @param options.id
      * @returns {Q.IPromise<any>}
      */
     @url('/{id}/download_info')
