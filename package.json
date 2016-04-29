@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "sbg-node",
   "license": "MIT",
+  "main": "lib/sbg.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/flipio/sbg-node-client"
