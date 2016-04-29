@@ -32,7 +32,7 @@
     "definition": "index.d.ts"
   },
   "scripts": {
-    "postinstall": "typings install",
+    "postinstall": "typings install && tsc",
     "test": "gulp test",
     "build": "gulp build"
   },
