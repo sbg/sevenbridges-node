@@ -1,7 +1,7 @@
 {
   "name": "sbg-node",
   "version": "0.0.0",
-  "description": "sbg-node",
+  "description": "sbg-node api client",
   "license": "MIT",
   "main": "lib/sbg.js",
   "repository": {
@@ -30,7 +30,7 @@
     "typings.json"
   ],
   "typescript": {
-    "definition": "index.d.ts"
+    "definition": "lib/sbg-node.d.ts"
   },
   "scripts": {
     "postinstall": "typings install && gulp build",
