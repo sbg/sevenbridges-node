@@ -7,7 +7,6 @@ Seven Bridges NodeJS Client implementation
     
     # in root directory run
     npm install
-    tsd install
     
     
     
