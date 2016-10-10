@@ -3,7 +3,7 @@ Seven Bridges NodeJS Client implementation
 
 # Develpoment setup: 
 
-    npm install -g gulp-cli tsd 
+    npm install -g gulp-cli tsd typings
     
     # in root directory run
     npm install
@@ -23,9 +23,9 @@ with content
 
 ### Running tests:
 
-    gulp test
+    gulp test // or `npm test`
     
-Running specifig client tests:
+Running specific client tests:
     
     gulp test --test user # will run only tests/user-client-test.js
     
