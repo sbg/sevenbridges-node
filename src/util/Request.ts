@@ -1,4 +1,4 @@
-/// <reference path="../../typings/main/ambient/request/index.d.ts" />
+/// <reference path="../../typings/modules/request/index.d.ts" />
 
 'use strict';
 

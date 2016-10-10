@@ -1,13 +1,16 @@
 {
-  "name": "sbg-node",
-  "version": false,
-  "ambientDependencies": {
-    "request": "github:DefinitelyTyped/DefinitelyTyped/request/request.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156",
-    "form-data": "github:DefinitelyTyped/DefinitelyTyped/form-data/form-data.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156",
-    "Q": "github:DefinitelyTyped/DefinitelyTyped/q/Q.d.ts#b14601af3fb2ad72d5048e94188a569a1838fb9c",
-    "fs-extra": "github:DefinitelyTyped/DefinitelyTyped/fs-extra/fs-extra.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156",
-    "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#6766ed1d0faf02ede9e2edf2e66bbb2388c825ec",
-    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34"
-  }
+    "name": "sbg-node",
+    "version": false,
+    "globalDependencies": {
+        "Q": "github:DefinitelyTyped/DefinitelyTyped/q/Q.d.ts#b14601af3fb2ad72d5048e94188a569a1838fb9c",
+        "form-data": "github:DefinitelyTyped/DefinitelyTyped/form-data/form-data.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156",
+        "fs-extra": "github:DefinitelyTyped/DefinitelyTyped/fs-extra/fs-extra.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156",
+        "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#a44529fcb1e1cdc0355e71c42a6048de99b57c34",
+        "mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#6766ed1d0faf02ede9e2edf2e66bbb2388c825ec",
+        "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#cc3d223a946f661eff871787edeb0fcb8f0db156"
+    },
+    "dependencies": {
+        "form-data": "registry:npm/form-data#1.0.0+20160812072516",
+        "request": "registry:npm/request#2.69.0+20160428223725"
+    }
 }

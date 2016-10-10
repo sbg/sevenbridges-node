@@ -39,7 +39,6 @@
     "src/sbg.ts",
     "src/util/Request.ts",
     "src/util/Response.ts",
-    "src/util/Util.ts",
-    "typings/main.d.ts"
+    "src/util/Util.ts"
   ]
 }

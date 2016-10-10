@@ -1,4 +1,5 @@
-/// <reference path="../../typings/main/ambient/lodash/index.d.ts" />
+/// <reference path="../../typings/globals/lodash/index.d.ts" />
+/// <reference path="../../typings/globals/Q/index.d.ts" />
 
 import {Api} from '../api/Api';
 import {Config} from '../config';
