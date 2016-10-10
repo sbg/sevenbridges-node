@@ -25,9 +25,50 @@ function getParams(url: string): Array<string> {
         }
     });
 
-
     return keys;
-}
+};
+
+function _formatUrl(url: string, options: any, method: string, keys: any) {
+
+    function replace(key: string, optional: boolean = false): void {
+
+        if (options[key] || optional) {
+
+            let temp: string = key;
+            let value = options[key];
+
+            if (optional) {
+                temp = temp + '?';
+            }
+
+            if (optional && !value) {
+                url = url.replace('/{' + temp + '}', '');
+            } else {
+                url = url.replace('{' + temp + '}', value);
+            }
+
+            delete options[key];
+        } else {
+            if (!optional) {
+                throw Error('Missing required PATH parameter: ' + key + ' in method: ' + method);
+            }
+        }
+    }
+
+    _.forEach(keys, function (key) {
+
+        if (_.endsWith(key, '?')) {
+            key = key.substring(0, key.length - 1);
+            replace(key, true);
+        } else {
+            replace(key);
+        }
+
+    });
+
+    return url;
+
+};
 
 export function url(urlTemplate?: string) {
     var keys: Array<string>;
@@ -39,6 +80,7 @@ export function url(urlTemplate?: string) {
     return function (target: any, method: string, descriptor: any) {
 
         return {
+
             value: function (...args: any[]) {
 
                 let options: any = args[0] || {};
@@ -47,42 +89,7 @@ export function url(urlTemplate?: string) {
 
                 if (urlTemplate && keys) {
 
-                    function replace(key: string, optional: boolean = false): void {
-
-                        if (options[key] || optional) {
-
-                            let temp: string = key;
-                            let value = options[key];
-
-                            if (optional) {
-                                temp = temp + '?';
-                            }
-
-                            if (optional && !value) {
-                                url = url.replace('/{' + temp + '}', '');
-                            } else {
-                                url = url.replace('{' + temp + '}', value);
-                            }
-
-                            delete options[key];
-                        } else {
-                            if (!optional) {
-                                throw Error('Missing required PATH parameter: ' + key + ' in method: ' + method);
-                            }
-                        }
-                    }
-
-                    _.forEach(keys, function (key) {
-
-                        if (_.endsWith(key, '?')) {
-                            key = key.substring(0, key.length - 1);
-                            replace(key, true);
-                        } else {
-                            replace(key);
-                        }
-
-                    });
-
+                    url = _formatUrl(url, options, method, keys);
                 }
 
                 let body: any = null;
@@ -95,6 +102,7 @@ export function url(urlTemplate?: string) {
                 let qs: any = options;
 
                 return descriptor.value.apply(this, [{
+
                     url: url,
                     qs: qs,
                     body: body
@@ -104,6 +112,7 @@ export function url(urlTemplate?: string) {
         };
     };
 };
+
 
 export function validate(items: Array<any>) {
     return function (target: any, key: string, descriptor: any) {
